@@ -1,0 +1,358 @@
+.about-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: rgba(16, 185, 129, 0.05);
+  border-radius: 2rem;
+  margin-bottom: 4rem;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.about-hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.about-story {
+  padding: 4rem 0;
+}
+
+.story-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.story-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.story-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-mission {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.about-mission h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.mission-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.mission-card {
+  padding: 2.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.mission-icon {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+.mission-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.mission-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.tech-stack {
+  padding: 4rem 0;
+  background-color: var(--bg-secondary);
+  margin: 4rem -2rem;
+  text-align: center;
+}
+
+.tech-stack h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.tech-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  padding: 0 2rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.tech-item {
+  padding: 2rem;
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.tech-icon {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+.tech-item h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.tech-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.open-source {
+  padding: 4rem 0;
+}
+
+.open-source-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 1.5rem;
+  text-align: center;
+}
+
+.open-source-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.open-source-content > p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.open-source-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.github-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.localization {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  margin: 4rem -2rem;
+}
+
+.localization h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.localization p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.platforms {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.platforms h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.platform-card {
+  padding: 2.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.platform-icon {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+.platform-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.platform-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.platform-link {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.about-cta {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: rgba(16, 185, 129, 0.05);
+  border-radius: 2rem;
+  margin-top: 4rem;
+}
+
+.about-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.about-cta p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mission-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .story-content h2,
+  .about-mission h2,
+  .tech-stack h2,
+  .platforms h2 {
+    font-size: 2rem;
+  }
+
+  .tech-stack,
+  .localization {
+    margin: 2rem -1.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .open-source-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .open-source-content {
+    padding: 2rem 1.5rem;
+  }
+}

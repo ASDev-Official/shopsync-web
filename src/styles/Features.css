@@ -1,0 +1,391 @@
+.features-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.features-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: rgba(16, 185, 129, 0.05);
+  border-radius: 2rem;
+  margin-bottom: 4rem;
+}
+
+.features-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.features-hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.feature-section {
+  padding: 4rem 0;
+}
+
+.feature-section.alt {
+  background-color: var(--bg-secondary);
+  margin: 4rem -2rem;
+  padding: 4rem 2rem;
+}
+
+.feature-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.feature-detail.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.feature-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--primary-color);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.feature-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.feature-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feature-list li {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  padding-left: 0.5rem;
+}
+
+.feature-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Sync Demo */
+.sync-demo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.device-card {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.device-header {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.sync-item {
+  padding: 0.75rem;
+  background-color: var(--bg-primary);
+  border-radius: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.sync-arrow {
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Offline Demo */
+.offline-demo {
+  padding: 2rem;
+}
+
+.offline-card {
+  padding: 3rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.offline-icon {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+.offline-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.offline-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.offline-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Collab Demo */
+.collab-demo {
+  padding: 2rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.user-avatar {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  margin: 0 -0.5rem;
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  border: 3px solid var(--bg-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shared-list {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--bg-primary);
+  border-radius: 0.75rem;
+}
+
+.shared-list h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.shared-list p {
+  color: var(--text-secondary);
+}
+
+/* Recycle Demo */
+.recycle-demo {
+  padding: 3rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.trash-icon {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+}
+
+.restore-action {
+  padding: 1rem 2rem;
+  background-color: var(--bg-primary);
+  border-radius: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.restore-arrow {
+  font-size: 1.5rem;
+  animation: rotate 2s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Theme Demo */
+.theme-demo {
+  display: flex;
+  gap: 1rem;
+}
+
+.theme-card {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.theme-card.light {
+  background-color: white;
+  color: #1f2937;
+}
+
+.theme-card.dark {
+  background-color: #1f2937;
+  color: white;
+}
+
+.theme-header {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.theme-preview {
+  height: 100px;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  opacity: 0.2;
+}
+
+/* Additional Features */
+.additional-features {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.additional-features h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.tag {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 2rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Features CTA */
+.features-cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: rgba(16, 185, 129, 0.05);
+  border-radius: 2rem;
+  margin-top: 4rem;
+}
+
+.features-cta h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.features-cta p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .features-hero h1 {
+    font-size: 2rem;
+  }
+
+  .feature-detail,
+  .feature-detail.reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .feature-section.alt {
+    margin: 2rem -1.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .sync-demo {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .theme-demo {
+    flex-direction: column;
+  }
+
+  .feature-tags {
+    gap: 0.75rem;
+  }
+
+  .tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
