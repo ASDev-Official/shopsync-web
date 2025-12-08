@@ -148,10 +148,6 @@ function Home() {
         <h2 className="section-title">Trusted by Users Worldwide</h2>
         <div className="stats-grid">
           <div className="stat-card">
-            <div className="stat-number">4.1.0</div>
-            <div className="stat-label">Latest Version</div>
-          </div>
-          <div className="stat-card">
             <div className="stat-number">100%</div>
             <div className="stat-label">Free & Open Source</div>
           </div>
