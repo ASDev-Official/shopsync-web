@@ -56,8 +56,8 @@ function Navbar() {
             Contact
           </Link>
           <Link
-            to="https://docs.shopsync.aadish.dev"
-            className={`nav-link ${isActive("https://docs.shopsync.aadish.dev")}`}
+            to="https://shopsync.aadish.dev/docs"
+            className={`nav-link ${isActive("https://shopsync.aadish.dev/docs")}`}
             onClick={closeMenu}
           >
             Docs
