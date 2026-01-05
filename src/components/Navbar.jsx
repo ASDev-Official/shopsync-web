@@ -55,13 +55,7 @@ function Navbar() {
           >
             Contact
           </Link>
-          <Link
-            to="https://shopsync.aadish.dev/docs/"
-            className={`nav-link ${isActive("https://shopsync.aadish.dev/docs/")}`}
-            onClick={closeMenu}
-          >
-            Docs
-          </Link>
+          <a href="/docs/">Docs</a>
           <a
             href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync"
             target="_blank"

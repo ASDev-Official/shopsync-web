@@ -113,13 +113,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://shopsync.aadish.dev/docs/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Documentation
-                </a>
+                <a href="https://shopsync.aadish.dev/docs/">Documentation</a>
               </li>
             </ul>
           </div>
