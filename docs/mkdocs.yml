@@ -1,0 +1,198 @@
+site_name: ShopSync Documentation
+site_url: https://docs.shopsync.aadish.dev/
+site_description: Comprehensive documentation for ShopSync - Share shopping lists with family and friends
+site_author: ASDev Official
+
+theme:
+  name: material
+  logo: assets/shopsync-logos/shopsync.png
+  favicon: assets/shopsync-logos/shopsync.png
+  font:
+    text: Roboto
+    code: Fira Code
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+      primary: green
+      accent: light green
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: green
+      accent: light green
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: green
+      accent: light green
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+
+repo_url: https://github.com/ASDev-Official/shopsync-docs
+repo_name: ASDev-Official/shopsync-docs
+edit_uri: ""
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      lang: en
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ASDev-Official/ShopSync
+    - icon: fontawesome/brands/google-play
+      link: https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync
+    - icon: fontawesome/solid/globe
+      link: https://app.shopsync.aadish.dev
+  version:
+    provider: mike
+  analytics:
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve by using our 
+            <a href="https://github.com/ASDev-Official/shopsync-docs/issues/new" target="_blank">feedback form</a>.
+
+copyright: Copyright &copy; 2025 ASDev Official. Licensed under MIT License.
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - getting-started/index.md
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+    - Firebase Setup: getting-started/firebase-setup.md
+  - User Guide:
+    - user-guide/index.md
+    - Authentication: user-guide/authentication.md
+    - Managing Lists: user-guide/managing-lists.md
+    - Working with Items: user-guide/working-with-items.md
+    - Categories & Organization: user-guide/categories.md
+    - Sharing & Collaboration: user-guide/sharing.md
+    - Offline Mode: user-guide/offline-mode.md
+    - Settings & Preferences: user-guide/settings.md
+  - Features:
+    - features/index.md
+    - Real-time Sync: features/real-time-sync.md
+    - Smart Suggestions: features/smart-suggestions.md
+    - Recycle Bin: features/recycle-bin.md
+    - Home Widgets: features/home-widgets.md
+    - WearOS Support: features/wearos.md
+    - Export & Share: features/export.md
+  - Developer Guide:
+    - developer-guide/index.md
+    - Architecture: developer-guide/architecture.md
+    - Project Structure: developer-guide/project-structure.md
+    - State Management: developer-guide/state-management.md
+    - Firebase Integration: developer-guide/firebase.md
+    - Services: developer-guide/services.md
+    - Screens: developer-guide/screens.md
+    - Widgets: developer-guide/widgets.md
+    - Testing: developer-guide/testing.md
+  - Deployment:
+    - deployment/index.md
+    - Android: deployment/android.md
+    - Web: deployment/web.md
+    - CI/CD: deployment/ci-cd.md
+  - Contributing:
+    - contributing/index.md
+    - Code of Conduct: contributing/code-of-conduct.md
+    - Development Setup: contributing/development-setup.md
+    - Pull Requests: contributing/pull-requests.md
+    - Localization: contributing/localization.md
+  - Reference:
+    - reference/index.md
+    - API Services: reference/api-services.md
+    - Configuration: reference/configuration.md
+    - Dependencies: reference/dependencies.md
+  - FAQ & Troubleshooting:
+    - faq/index.md
+    - Common Issues: faq/common-issues.md
+    - Performance: faq/performance.md
+  - About:
+    - License: about/license.md
+    - Changelog: about/changelog.md
+    - Security: about/security.md
