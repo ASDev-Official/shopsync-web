@@ -1,7 +1,7 @@
 site_name: ShopSync Documentation
 site_url: https://shopsync.aadish.dev/docs/
 site_description: Comprehensive documentation for ShopSync - Share shopping lists with family and friends
-site_author: ASDev Official
+site_author: Aadish Samir
 
 use_directory_urls: true
 
@@ -138,7 +138,7 @@ extra:
             Thanks for your feedback! Help us improve by using our 
             <a href="https://github.com/ASDev-Official/shopsync-docs/issues/new" target="_blank">feedback form</a>.
 
-copyright: Copyright &copy; 2025 ASDev Official. Licensed under MIT License.
+copyright: Copyright &copy; 2025 Aadish Samir. Licensed under MIT License.
 
 nav:
   - Home: index.md
