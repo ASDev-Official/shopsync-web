@@ -1,15 +1,13 @@
 {
+  "trailingSlash": true,
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/docs/(.*)",
-      "destination": "/docs/$1"
+      "source": "/docs/:path*",
+      "destination": "/docs/:path*"
     },
     {
-      "source": "/docs",
-      "destination": "/docs/index.html"
-    },
-    {
-      "source": "/((?!docs).*)",
+      "source": "/((?!docs|assets|google-play-badge).*)",
       "destination": "/index.html"
     }
   ]

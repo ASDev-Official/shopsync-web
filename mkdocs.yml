@@ -3,6 +3,8 @@ site_url: https://shopsync.aadish.dev/docs/
 site_description: Comprehensive documentation for ShopSync - Share shopping lists with family and friends
 site_author: ASDev Official
 
+use_directory_urls: true
+
 theme:
   name: material
   logo: assets/shopsync-logos/shopsync.png
