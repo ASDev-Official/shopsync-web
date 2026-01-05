@@ -1,32 +1,35 @@
-# ShopSync Landing Page
+# ShopSync Documentation and Home Page
 
-This is the landing site for the ShopSync app, built with React and Vite.
+Welcome to the official documentation and home page repository for **ShopSync**!
 
-## Features
+**Live site:** https://shopsync.aadish.dev
 
-- Multi-page React site (Home, Features, About, Contact)
-- Responsive, green-themed design
-- Lucide React icons
-- Google Play badge for app download
+## About This Repository
 
-## Quick Start
+This repository contains the comprehensive documentation for ShopSync.
 
-```sh
-npm install
-npm run dev
-```
+## Contributing
 
-## Tech Stack
+We welcome contributions to improve our documentation! Whether you're fixing a typo, clarifying an explanation, or adding new content, your help is appreciated.
 
-- React
-- Vite
-- React Router DOM
-- Lucide React
+Please read our [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to contribute to this documentation.
 
-## App Download
+## ShopSync Repository
 
-[![Get it on Google Play](public/google-play-badge.png)](https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync)
+https://github.com/ASDev-Official/shopsync
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+This documentation is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+If you have questions or need help:
+
+- Open an issue in this repository for documentation-related questions
+- Visit the main ShopSync repository for application-specific issues
+- Check our documentation for answers to common questions
+
+## Stay Updated
+
+Watch this repository to stay informed about documentation updates and improvements.
