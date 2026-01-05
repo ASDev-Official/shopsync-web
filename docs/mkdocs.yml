@@ -1,5 +1,5 @@
 site_name: ShopSync Documentation
-site_url: https://docs.shopsync.aadish.dev/
+site_url: https://shopsync.aadish.dev/docs
 site_description: Comprehensive documentation for ShopSync - Share shopping lists with family and friends
 site_author: ASDev Official
 
@@ -22,7 +22,7 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
       primary: green
       accent: light green
@@ -141,58 +141,58 @@ copyright: Copyright &copy; 2025 ASDev Official. Licensed under MIT License.
 nav:
   - Home: index.md
   - Getting Started:
-    - getting-started/index.md
-    - Installation: getting-started/installation.md
-    - Quick Start: getting-started/quick-start.md
-    - Firebase Setup: getting-started/firebase-setup.md
+      - getting-started/index.md
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+      - Firebase Setup: getting-started/firebase-setup.md
   - User Guide:
-    - user-guide/index.md
-    - Authentication: user-guide/authentication.md
-    - Managing Lists: user-guide/managing-lists.md
-    - Working with Items: user-guide/working-with-items.md
-    - Categories & Organization: user-guide/categories.md
-    - Sharing & Collaboration: user-guide/sharing.md
-    - Offline Mode: user-guide/offline-mode.md
-    - Settings & Preferences: user-guide/settings.md
+      - user-guide/index.md
+      - Authentication: user-guide/authentication.md
+      - Managing Lists: user-guide/managing-lists.md
+      - Working with Items: user-guide/working-with-items.md
+      - Categories & Organization: user-guide/categories.md
+      - Sharing & Collaboration: user-guide/sharing.md
+      - Offline Mode: user-guide/offline-mode.md
+      - Settings & Preferences: user-guide/settings.md
   - Features:
-    - features/index.md
-    - Real-time Sync: features/real-time-sync.md
-    - Smart Suggestions: features/smart-suggestions.md
-    - Recycle Bin: features/recycle-bin.md
-    - Home Widgets: features/home-widgets.md
-    - WearOS Support: features/wearos.md
-    - Export & Share: features/export.md
+      - features/index.md
+      - Real-time Sync: features/real-time-sync.md
+      - Smart Suggestions: features/smart-suggestions.md
+      - Recycle Bin: features/recycle-bin.md
+      - Home Widgets: features/home-widgets.md
+      - WearOS Support: features/wearos.md
+      - Export & Share: features/export.md
   - Developer Guide:
-    - developer-guide/index.md
-    - Architecture: developer-guide/architecture.md
-    - Project Structure: developer-guide/project-structure.md
-    - State Management: developer-guide/state-management.md
-    - Firebase Integration: developer-guide/firebase.md
-    - Services: developer-guide/services.md
-    - Screens: developer-guide/screens.md
-    - Widgets: developer-guide/widgets.md
-    - Testing: developer-guide/testing.md
+      - developer-guide/index.md
+      - Architecture: developer-guide/architecture.md
+      - Project Structure: developer-guide/project-structure.md
+      - State Management: developer-guide/state-management.md
+      - Firebase Integration: developer-guide/firebase.md
+      - Services: developer-guide/services.md
+      - Screens: developer-guide/screens.md
+      - Widgets: developer-guide/widgets.md
+      - Testing: developer-guide/testing.md
   - Deployment:
-    - deployment/index.md
-    - Android: deployment/android.md
-    - Web: deployment/web.md
-    - CI/CD: deployment/ci-cd.md
+      - deployment/index.md
+      - Android: deployment/android.md
+      - Web: deployment/web.md
+      - CI/CD: deployment/ci-cd.md
   - Contributing:
-    - contributing/index.md
-    - Code of Conduct: contributing/code-of-conduct.md
-    - Development Setup: contributing/development-setup.md
-    - Pull Requests: contributing/pull-requests.md
-    - Localization: contributing/localization.md
+      - contributing/index.md
+      - Code of Conduct: contributing/code-of-conduct.md
+      - Development Setup: contributing/development-setup.md
+      - Pull Requests: contributing/pull-requests.md
+      - Localization: contributing/localization.md
   - Reference:
-    - reference/index.md
-    - API Services: reference/api-services.md
-    - Configuration: reference/configuration.md
-    - Dependencies: reference/dependencies.md
+      - reference/index.md
+      - API Services: reference/api-services.md
+      - Configuration: reference/configuration.md
+      - Dependencies: reference/dependencies.md
   - FAQ & Troubleshooting:
-    - faq/index.md
-    - Common Issues: faq/common-issues.md
-    - Performance: faq/performance.md
+      - faq/index.md
+      - Common Issues: faq/common-issues.md
+      - Performance: faq/performance.md
   - About:
-    - License: about/license.md
-    - Changelog: about/changelog.md
-    - Security: about/security.md
+      - License: about/license.md
+      - Changelog: about/changelog.md
+      - Security: about/security.md
