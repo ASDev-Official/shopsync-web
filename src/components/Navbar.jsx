@@ -55,7 +55,9 @@ function Navbar() {
           >
             Contact
           </Link>
-          <a href="/docs/">Docs</a>
+          <a href="/docs/" className="nav-link">
+            Docs
+          </a>
           <a
             href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync"
             target="_blank"
