@@ -1,39 +1,30 @@
-{% set class = "md-nav" %}
-{% if nav_item.active %}
-  {% set class = "md-nav md-nav--primary" %}
-{% endif %}
-
-<!-- Navigation -->
-<nav class="{{ class }}" {% if nav_item.active %}data-md-level="0"{% endif %} aria-label="{{ lang.t('nav.title') }}">
+<!-- Primary navigation -->
+<nav class="md-nav md-nav--primary" aria-label="{{ lang.t('nav.title') }}" data-md-level="0">
 
   <!-- Site title in mobile navigation -->
-  {% if nav_item.active %}
-    <label class="md-nav__title" for="__drawer">
-      <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
-        {% include "partials/logo.html" %}
-      </a>
-      {{ config.site_name }}
-    </label>
-  {% endif %}
+  <label class="md-nav__title" for="__drawer">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+      {% include "partials/logo.html" %}
+    </a>
+    {{ config.site_name }}
+  </label>
 
   <!-- Repository link in mobile navigation -->
-  {% if config.repo_url and nav_item.active %}
+  {% if config.repo_url %}
     <div class="md-nav__source">
       {% include "partials/source.html" %}
     </div>
   {% endif %}
 
   <!-- Back to home link in mobile drawer -->
-  {% if nav_item.active %}
-    <div class="md-nav__home-link">
-      <a href="/" class="md-nav__link md-nav__link--home" title="Back to ShopSync Homepage">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="md-nav__home-icon">
-          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-        </svg>
-        <span>Back to ShopSync Home</span>
-      </a>
-    </div>
-  {% endif %}
+  <div class="md-nav__home-link">
+    <a href="/" class="md-nav__link md-nav__link--home" title="Back to ShopSync Homepage">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="md-nav__home-icon">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      <span>Back to ShopSync Home</span>
+    </a>
+  </div>
 
   <!-- Navigation list -->
   <ul class="md-nav__list" data-md-scrollfix>
@@ -45,7 +36,7 @@
   </ul>
 
   <!-- Social links in mobile drawer -->
-  {% if config.extra.social and nav_item.active %}
+  {% if config.extra.social %}
     <div class="md-nav__social">
       <span class="md-nav__social-title">Connect with us</span>
       <div class="md-nav__social-links">
