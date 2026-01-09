@@ -1,0 +1,62 @@
+{% set class = "md-nav" %}
+{% if nav_item.active %}
+  {% set class = "md-nav md-nav--primary" %}
+{% endif %}
+
+<!-- Navigation -->
+<nav class="{{ class }}" {% if nav_item.active %}data-md-level="0"{% endif %} aria-label="{{ lang.t('nav.title') }}">
+
+  <!-- Site title in mobile navigation -->
+  {% if nav_item.active %}
+    <label class="md-nav__title" for="__drawer">
+      <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+        {% include "partials/logo.html" %}
+      </a>
+      {{ config.site_name }}
+    </label>
+  {% endif %}
+
+  <!-- Repository link in mobile navigation -->
+  {% if config.repo_url and nav_item.active %}
+    <div class="md-nav__source">
+      {% include "partials/source.html" %}
+    </div>
+  {% endif %}
+
+  <!-- Back to home link in mobile drawer -->
+  {% if nav_item.active %}
+    <div class="md-nav__home-link">
+      <a href="/" class="md-nav__link md-nav__link--home" title="Back to ShopSync Homepage">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="md-nav__home-icon">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Back to ShopSync Home</span>
+      </a>
+    </div>
+  {% endif %}
+
+  <!-- Navigation list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    {% for nav_item in nav %}
+      {% set path = "__nav_" ~ loop.index %}
+      {% set level = 1 %}
+      {% include "partials/nav-item.html" %}
+    {% endfor %}
+  </ul>
+
+  <!-- Social links in mobile drawer -->
+  {% if config.extra.social and nav_item.active %}
+    <div class="md-nav__social">
+      <span class="md-nav__social-title">Connect with us</span>
+      <div class="md-nav__social-links">
+        {% for social in config.extra.social %}
+          <a href="{{ social.link }}" target="_blank" rel="noopener noreferrer" class="md-social" title="{{ social.name }}">
+            <svg class="md-social__icon">
+              <use href="#__{{ social.icon | replace('/', '-') }}"></use>
+            </svg>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</nav>
