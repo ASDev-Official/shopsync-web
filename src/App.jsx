@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import StatusBanner from "./components/StatusBanner";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
 import About from "./pages/About";
@@ -11,6 +12,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <StatusBanner />
         <Navbar />
         <main className="main-content">
           <Routes>

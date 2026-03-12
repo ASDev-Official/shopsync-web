@@ -6,11 +6,11 @@
 
 .main-content {
   flex: 1;
-  padding-top: 80px;
+  padding-top: calc(80px + var(--banner-height, 0px));
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding-top: 70px;
+    padding-top: calc(70px + var(--banner-height, 0px));
   }
 }
