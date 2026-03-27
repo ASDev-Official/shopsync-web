@@ -164,7 +164,7 @@ We value all contributions! Contributors will be recognized for their efforts in
 
 ## License
 
-By contributing to this documentation, you agree that your contributions will be licensed under the MIT License, consistent with the project's existing license.
+By contributing to this documentation, you agree that your contributions will be licensed under the GNU GPL v3.0 License, consistent with the project's existing license.
 
 ---
 

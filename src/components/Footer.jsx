@@ -33,11 +33,11 @@ function Footer() {
                 href="https://github.com/ASDev-Official/shopsync/blob/main/LICENSE"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="MIT License"
+                aria-label="GNU GPL v3.0 License"
               >
                 <img
-                  src="https://img.shields.io/badge/license-MIT-blue"
-                  alt="MIT License"
+                  src="https://img.shields.io/badge/license-GNU GPL v3.0-blue"
+                  alt="GNU GPL v3.0 License"
                 />
               </a>
             </div>
@@ -127,7 +127,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  License (MIT)
+                  License (GNU GPL v3.0)
                 </a>
               </li>
               <li>
@@ -166,7 +166,7 @@ function Footer() {
 
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <p>© {currentYear} ShopSync. Open source under MIT License.</p>
+            <p>© {currentYear} ShopSync. Open source under GNU GPL v3.0 License.</p>
           </div>
           <div className="footer-social">
             <a

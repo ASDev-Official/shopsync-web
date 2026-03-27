@@ -5,7 +5,7 @@ Find answers to common questions and solutions to typical issues.
 ## General Questions
 
 ??? question "Is ShopSync free?"
-Yes! ShopSync is completely free and open source under the MIT License. There are no hidden costs, subscriptions, or in-app purchases required for core features.
+Yes! ShopSync is completely free and open source under the GNU GPL v3.0 License. There are no hidden costs, subscriptions, or in-app purchases required for core features.
 
 ??? question "What platforms does ShopSync support?"
 ShopSync currently supports:

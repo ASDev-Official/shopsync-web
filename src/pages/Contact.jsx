@@ -254,7 +254,7 @@ function Contact() {
           <div className="faq-item">
             <h3>Is ShopSync really free?</h3>
             <p>
-              Yes! ShopSync is completely free and open source under the MIT
+              Yes! ShopSync is completely free and open source under the GNU GPL v3.0
               License.
             </p>
           </div>

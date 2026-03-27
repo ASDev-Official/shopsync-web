@@ -137,13 +137,13 @@ function About() {
         <div className="open-source-content">
           <h2>🌟 Open Source & Community Driven</h2>
           <p>
-            ShopSync is proudly open source under the MIT License. We believe in
+            ShopSync is proudly open source under the GNU GPL v3.0 License. We believe in
             transparency, collaboration, and giving back to the developer
             community.
           </p>
           <div className="open-source-stats">
             <div className="stat">
-              <div className="stat-value">MIT</div>
+              <div className="stat-value">GNU GPL v3.0</div>
               <div className="stat-label">License</div>
             </div>
             <div className="stat">

@@ -156,7 +156,7 @@
 
 ## License
 
-ShopSync is open source software licensed under the [MIT License](about/license.md).
+ShopSync is open source software licensed under the [GNU GPL v3.0 License](about/license.md).
 
 ---
 

@@ -74,7 +74,7 @@ https://github.com/ASDev-Official/shopsync
 
 ## License
 
-This documentation is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This documentation is licensed under the GNU GPL v3.0 License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
