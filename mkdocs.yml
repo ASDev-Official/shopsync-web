@@ -37,8 +37,6 @@ theme:
       primary: green
       accent: light green
   features:
-    - navigation.instant
-    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
