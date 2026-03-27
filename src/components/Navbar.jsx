@@ -3,26 +3,38 @@ import { useEffect, useRef, useState } from "react";
 import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Navbar.css";
 
-function getLanguageLabel(code, displayLocale) {
+function normalizeLocaleTag(code) {
+  const candidate = String(code || "").replace(/_/g, "-");
   try {
-    const [languageCode, regionCode] = code.split("-");
-    const languageNames = new Intl.DisplayNames([displayLocale], {
+    return Intl.getCanonicalLocales(candidate)[0] || candidate;
+  } catch {
+    return candidate;
+  }
+}
+
+function formatLanguageCode(code) {
+  const normalized = normalizeLocaleTag(code);
+  return normalized
+    .split("-")
+    .map((part) => part.toUpperCase())
+    .join("-");
+}
+
+function getLanguageAutonym(code) {
+  const normalized = normalizeLocaleTag(code);
+  try {
+    const languageNames = new Intl.DisplayNames([normalized], {
       type: "language",
     });
-    const languageName = languageNames.of(languageCode) || code.toUpperCase();
-
-    if (!regionCode) {
-      return languageName;
+    const autonym = languageNames.of(normalized);
+    if (autonym) {
+      return autonym;
     }
 
-    const regionNames = new Intl.DisplayNames([displayLocale], {
-      type: "region",
-    });
-    const regionName = regionNames.of(regionCode.toUpperCase());
-
-    return regionName ? `${languageName} (${regionName})` : languageName;
+    const languageSubtag = normalized.split("-")[0];
+    return languageNames.of(languageSubtag) || formatLanguageCode(code);
   } catch {
-    return code.toUpperCase();
+    return formatLanguageCode(code);
   }
 }
 
@@ -118,7 +130,7 @@ function Navbar() {
             >
               <span className="nav-language-trigger-row">
                 <span className="nav-language-trigger-code">
-                  {locale.toUpperCase()}
+                  {formatLanguageCode(locale)}
                 </span>
                 <span className="nav-language-trigger-percent">
                   {localeProgress[locale] ?? 0}%
@@ -151,7 +163,7 @@ function Navbar() {
                     >
                       <div className="nav-language-option-row">
                         <span className="nav-language-option-label">
-                          {getLanguageLabel(code, locale)}
+                          {getLanguageAutonym(code)}
                         </span>
                         <span className="nav-language-option-percent">
                           {progress}%
