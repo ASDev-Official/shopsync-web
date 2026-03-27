@@ -3,6 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Navbar.css";
 
+const LANGUAGE_AUTONYM_OVERRIDES = {
+  "zh-hans": "简体中文",
+  "zh-hant": "繁體中文",
+  "pt-br": "Português (Brasil)",
+  "pt-pt": "Português (Portugal)",
+};
+
 function normalizeLocaleTag(code) {
   const candidate = String(code || "").replace(/_/g, "-");
   try {
@@ -22,6 +29,12 @@ function formatLanguageCode(code) {
 
 function getLanguageAutonym(code) {
   const normalized = normalizeLocaleTag(code);
+  const lower = normalized.toLowerCase();
+
+  if (LANGUAGE_AUTONYM_OVERRIDES[lower]) {
+    return LANGUAGE_AUTONYM_OVERRIDES[lower];
+  }
+
   try {
     const languageNames = new Intl.DisplayNames([normalized], {
       type: "language",
