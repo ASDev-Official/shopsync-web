@@ -2,6 +2,7 @@
   "@@locale": "en",
   "app.brand": "ShopSync",
   "common.language": "Language",
+  "common.translated": "translated",
   "common.close": "Close",
   "common.googlePlayAlt": "Get it on Google Play",
   "nav.home": "Home",

@@ -1,12 +1,37 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Navbar.css";
 
+function getLanguageLabel(code, displayLocale) {
+  try {
+    const [languageCode, regionCode] = code.split("-");
+    const languageNames = new Intl.DisplayNames([displayLocale], {
+      type: "language",
+    });
+    const languageName = languageNames.of(languageCode) || code.toUpperCase();
+
+    if (!regionCode) {
+      return languageName;
+    }
+
+    const regionNames = new Intl.DisplayNames([displayLocale], {
+      type: "region",
+    });
+    const regionName = regionNames.of(regionCode.toUpperCase());
+
+    return regionName ? `${languageName} (${regionName})` : languageName;
+  } catch {
+    return code.toUpperCase();
+  }
+}
+
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const location = useLocation();
-  const { t, locale, setLocale, availableLocales } = useI18n();
+  const { t, locale, setLocale, availableLocales, localeProgress } = useI18n();
+  const languageMenuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,6 +40,28 @@ function Navbar() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  useEffect(() => {
+    const onPointerDown = (event) => {
+      if (!languageMenuRef.current?.contains(event.target)) {
+        setIsLangOpen(false);
+      }
+    };
+
+    const onEscape = (event) => {
+      if (event.key === "Escape") {
+        setIsLangOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, []);
 
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
@@ -60,18 +107,66 @@ function Navbar() {
           <a href="/docs/" className="nav-link">
             {t("nav.docs")}
           </a>
-          <select
-            className="nav-language-select"
-            aria-label={t("nav.languageAria")}
-            value={locale}
-            onChange={(e) => setLocale(e.target.value)}
-          >
-            {availableLocales.map((code) => (
-              <option key={code} value={code}>
-                {code.toUpperCase()}
-              </option>
-            ))}
-          </select>
+          <div className="nav-language-dropdown" ref={languageMenuRef}>
+            <button
+              type="button"
+              className="nav-language-trigger"
+              aria-label={t("nav.languageAria")}
+              aria-haspopup="listbox"
+              aria-expanded={isLangOpen}
+              onClick={() => setIsLangOpen((open) => !open)}
+            >
+              <span className="nav-language-trigger-title">
+                {t("common.language")}: {getLanguageLabel(locale, locale)}
+              </span>
+              <span className="nav-language-trigger-meta">
+                {localeProgress[locale] ?? 0}% {t("common.translated")}
+              </span>
+            </button>
+
+            {isLangOpen && (
+              <div
+                className="nav-language-menu"
+                role="listbox"
+                aria-label={t("nav.languageAria")}
+              >
+                {availableLocales.map((code) => {
+                  const progress = localeProgress[code] ?? 0;
+                  const active = code === locale;
+
+                  return (
+                    <button
+                      key={code}
+                      type="button"
+                      role="option"
+                      aria-selected={active}
+                      className={`nav-language-option ${active ? "active" : ""}`}
+                      onClick={() => {
+                        setLocale(code);
+                        setIsLangOpen(false);
+                        closeMenu();
+                      }}
+                    >
+                      <div className="nav-language-option-row">
+                        <span className="nav-language-option-label">
+                          {getLanguageLabel(code, locale)}
+                        </span>
+                        <span className="nav-language-option-percent">
+                          {progress}%
+                        </span>
+                      </div>
+                      <div className="nav-language-progress-track" aria-hidden="true">
+                        <span
+                          className="nav-language-progress-fill"
+                          style={{ width: `${progress}%` }}
+                        ></span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
           <a
             href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync"
             target="_blank"

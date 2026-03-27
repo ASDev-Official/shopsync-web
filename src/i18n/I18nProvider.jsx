@@ -2,7 +2,8 @@
 import { createContext, useContext, useMemo, useState, useEffect } from "react";
 
 const DEFAULT_LOCALE = "en";
-const STORAGE_KEY = "shopsync.locale";
+const STORAGE_LOCALE_KEY = "shopsync.locale";
+const STORAGE_MANUAL_KEY = "shopsync.locale.manual";
 
 const modules = import.meta.glob("../l10n/*.arb", { eager: true });
 
@@ -15,11 +16,37 @@ const translationsByLocale = Object.entries(modules).reduce((acc, [path, mod]) =
 }, {});
 
 const availableLocales = Object.keys(translationsByLocale).sort();
+const localeLookup = availableLocales.reduce((acc, code) => {
+  acc[code.toLowerCase()] = code;
+  return acc;
+}, {});
+
+const fallbackLocale = resolveSupportedLocale(DEFAULT_LOCALE) || availableLocales[0] || DEFAULT_LOCALE;
+const sourceKeys = Object.keys(translationsByLocale[fallbackLocale] || {}).filter(
+  (key) => !key.startsWith("@")
+);
+const localeProgress = availableLocales.reduce((acc, code) => {
+  const data = translationsByLocale[code] || {};
+  const translatedCount = sourceKeys.reduce((count, key) => {
+    const value = data[key];
+    if (typeof value === "string" && value.trim().length > 0) {
+      return count + 1;
+    }
+    return count;
+  }, 0);
+
+  acc[code] = sourceKeys.length
+    ? Math.round((translatedCount / sourceKeys.length) * 100)
+    : 100;
+
+  return acc;
+}, {});
 
 const I18nContext = createContext({
-  locale: DEFAULT_LOCALE,
+  locale: fallbackLocale,
   setLocale: () => {},
-  availableLocales: [DEFAULT_LOCALE],
+  availableLocales,
+  localeProgress,
   t: (key, vars = {}) => {
     let result = key;
     Object.entries(vars).forEach(([name, value]) => {
@@ -29,30 +56,60 @@ const I18nContext = createContext({
   },
 });
 
+function resolveSupportedLocale(rawLocale) {
+  if (!rawLocale) {
+    return null;
+  }
+
+  const normalized = rawLocale.toLowerCase();
+  if (localeLookup[normalized]) {
+    return localeLookup[normalized];
+  }
+
+  const short = normalized.split("-")[0];
+  if (localeLookup[short]) {
+    return localeLookup[short];
+  }
+
+  return null;
+}
+
 function resolveInitialLocale() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored && translationsByLocale[stored]) {
-    return stored;
+  const manuallySelected = localStorage.getItem(STORAGE_MANUAL_KEY) === "1";
+  const stored = localStorage.getItem(STORAGE_LOCALE_KEY);
+
+  if (manuallySelected) {
+    const supportedStored = resolveSupportedLocale(stored);
+    if (supportedStored) {
+      return supportedStored;
+    }
   }
 
-  const browser = navigator.language.toLowerCase();
-  if (translationsByLocale[browser]) {
-    return browser;
+  const deviceLocales = Array.isArray(navigator.languages) && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language];
+
+  for (const candidate of deviceLocales) {
+    const supported = resolveSupportedLocale(candidate);
+    if (supported) {
+      return supported;
+    }
   }
 
-  const short = browser.split("-")[0];
-  if (translationsByLocale[short]) {
-    return short;
-  }
-
-  return DEFAULT_LOCALE;
+  return fallbackLocale;
 }
 
 export function I18nProvider({ children }) {
-  const [locale, setLocale] = useState(resolveInitialLocale);
+  const [locale, setLocaleState] = useState(resolveInitialLocale);
+
+  const setLocale = (nextLocale) => {
+    const supported = resolveSupportedLocale(nextLocale) || fallbackLocale;
+    setLocaleState(supported);
+    localStorage.setItem(STORAGE_LOCALE_KEY, supported);
+    localStorage.setItem(STORAGE_MANUAL_KEY, "1");
+  };
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, locale);
     document.documentElement.lang = locale;
   }, [locale]);
 
@@ -73,6 +130,7 @@ export function I18nProvider({ children }) {
       locale,
       setLocale,
       availableLocales,
+      localeProgress,
       t,
     };
   }, [locale]);
