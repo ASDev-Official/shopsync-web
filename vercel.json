@@ -7,7 +7,7 @@
       "destination": "/docs/:path*"
     },
     {
-      "source": "/((?!docs|assets|google-play-badge).*)",
+      "source": "/:path*",
       "destination": "/index.html"
     }
   ]
