@@ -7,7 +7,6 @@ use_directory_urls: true
 
 theme:
   name: material
-  custom_dir: overrides
   logo: assets/shopsync-logos/shopsync.png
   favicon: assets/shopsync-logos/shopsync.png
   font:
