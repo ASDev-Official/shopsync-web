@@ -1,1 +1,16 @@
-{}
+{
+    "footer.bottom.copyright": "© {year} ShopSync. Open source bajo la Licencia GNU GPL v3.0.",
+    "app.brand": "ShopSync",
+    "common.language": "Idioma",
+    "common.translated": "traducido",
+    "common.close": "Cerrar",
+    "common.googlePlayAlt": "Obtenerlo en Google Play",
+    "nav.home": "Inicio",
+    "nav.features": "Prestaciones",
+    "nav.about": "Acerca de",
+    "nav.contact": "Contactar",
+    "nav.docs": "Documentos",
+    "nav.languageAria": "Seleccionar idioma",
+    "footer.description": "Comparte tus listas de la compra con familiares y amigos. Gratis, de código abierto y creado con cariño.",
+    "footer.githubRepository": "Repositorio de GitHub"
+}
