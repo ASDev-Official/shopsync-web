@@ -44,7 +44,7 @@ Thank you for your interest in contributing to ShopSync! We welcome contribution
 
   Improve or add documentation
 
-  [:octicons-arrow-right-24: Docs Repository](https://github.com/ASDev-Official/shopsync)
+  [:octicons-arrow-right-24: Docs Repository](https://github.com/ASDev-Official/shopsync-docs)
 
 - :material-test-tube:{ .lg .middle } **Testing**
 

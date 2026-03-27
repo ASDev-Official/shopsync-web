@@ -56,8 +56,8 @@ theme:
     - content.tabs.link
     - content.tooltips
 
-repo_url: https://github.com/ASDev-Official/shopsync
-repo_name: ASDev-Official/shopsync
+repo_url: https://github.com/ASDev-Official/shopsync-docs
+repo_name: ASDev-Official/shopsync-docs
 edit_uri: ""
 
 plugins:
@@ -138,7 +138,7 @@ extra:
           data: 0
           note: >-
             Thanks for your feedback! Help us improve by using our 
-            <a href="https://github.com/ASDev-Official/shopsync/issues/new" target="_blank">feedback form</a>.
+            <a href="https://github.com/ASDev-Official/shopsync-docs/issues/new" target="_blank">feedback form</a>.
 
 copyright: Copyright &copy; 2025 Aadish Samir. Licensed under MIT License.
 
