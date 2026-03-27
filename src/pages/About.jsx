@@ -167,7 +167,7 @@ function About() {
         </h2>
         <p>{t("about.localization.desc")}</p>
         <a
-          href="https://hosted.weblate.org/projects/asdev-official/shopsync-web-landing/"
+          href="https://hosted.weblate.org/engage/asdev-shopsync/"
           className="btn btn-primary"
           target="_blank"
           rel="noopener noreferrer"

@@ -110,7 +110,7 @@ function Contact() {
                   <h3>{t("contact.localization.title")}</h3>
                   <p>{t("contact.localization.desc")}</p>
                   <a
-                    href="https://hosted.weblate.org/projects/asdev-official/shopsync-web-landing/"
+                    href="https://hosted.weblate.org/engage/asdev-shopsync/"
                     className="method-link"
                     target="_blank"
                     rel="noopener noreferrer"

@@ -106,7 +106,7 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="https://hosted.weblate.org/projects/asdev-official/shopsync-web-landing/"
+                  href="https://hosted.weblate.org/engage/asdev-shopsync/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
