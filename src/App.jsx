@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import StatusBanner from "./components/StatusBanner";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
 import About from "./pages/About";
@@ -11,6 +12,7 @@ import "./App.css";
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         <StatusBanner />
         <Navbar />
