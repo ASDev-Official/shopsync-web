@@ -116,11 +116,13 @@ function Navbar() {
               aria-expanded={isLangOpen}
               onClick={() => setIsLangOpen((open) => !open)}
             >
-              <span className="nav-language-trigger-title">
-                {t("common.language")}: {getLanguageLabel(locale, locale)}
-              </span>
-              <span className="nav-language-trigger-meta">
-                {localeProgress[locale] ?? 0}% {t("common.translated")}
+              <span className="nav-language-trigger-row">
+                <span className="nav-language-trigger-code">
+                  {locale.toUpperCase()}
+                </span>
+                <span className="nav-language-trigger-percent">
+                  {localeProgress[locale] ?? 0}%
+                </span>
               </span>
             </button>
 
