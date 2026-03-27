@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Navbar.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { t, locale, setLocale, availableLocales } = useI18n();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -32,32 +34,44 @@ function Navbar() {
             className={`nav-link ${isActive("/")}`}
             onClick={closeMenu}
           >
-            Home
+            {t("nav.home")}
           </Link>
           <Link
             to="/features"
             className={`nav-link ${isActive("/features")}`}
             onClick={closeMenu}
           >
-            Features
+            {t("nav.features")}
           </Link>
           <Link
             to="/about"
             className={`nav-link ${isActive("/about")}`}
             onClick={closeMenu}
           >
-            About
+            {t("nav.about")}
           </Link>
           <Link
             to="/contact"
             className={`nav-link ${isActive("/contact")}`}
             onClick={closeMenu}
           >
-            Contact
+            {t("nav.contact")}
           </Link>
           <a href="/docs/" className="nav-link">
-            Docs
+            {t("nav.docs")}
           </a>
+          <select
+            className="nav-language-select"
+            aria-label={t("nav.languageAria")}
+            value={locale}
+            onChange={(e) => setLocale(e.target.value)}
+          >
+            {availableLocales.map((code) => (
+              <option key={code} value={code}>
+                {code.toUpperCase()}
+              </option>
+            ))}
+          </select>
           <a
             href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync"
             target="_blank"
@@ -66,7 +80,7 @@ function Navbar() {
           >
             <img
               src="/google-play-badge.png"
-              alt="Get it on Google Play"
+              alt={t("common.googlePlayAlt")}
               style={{ height: "40px" }}
             />
           </a>

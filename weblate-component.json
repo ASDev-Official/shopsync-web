@@ -1,0 +1,13 @@
+{
+  "name": "web",
+  "slug": "web",
+  "vcs": "git",
+  "repo": "https://github.com/ASDev-Official/shopsync-web.git",
+  "branch": "main",
+  "filemask": "src/l10n/*.arb",
+  "template": "src/l10n/en.arb",
+  "new_base": "src/l10n/en.arb",
+  "file_format": "arb",
+  "source_language": "en",
+  "language_regex": "^[^.]+$"
+}

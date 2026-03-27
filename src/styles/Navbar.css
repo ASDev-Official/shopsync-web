@@ -52,6 +52,16 @@
   position: relative;
 }
 
+.nav-language-select {
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
 .nav-link.active {
   color: var(--primary-color);
 }
@@ -110,9 +120,17 @@
   }
 
   .nav-link,
-  .nav-button {
+  .nav-button,
+  .nav-language-select {
     width: 100%;
     padding: 1rem;
+  }
+
+  .nav-language-select {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    background: transparent;
   }
 
   .nav-link::after {

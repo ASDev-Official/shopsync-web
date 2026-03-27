@@ -1,18 +1,24 @@
 import { useState, useEffect, useRef } from "react";
+import { useI18n } from "../i18n/I18nProvider";
 import "../styles/StatusBanner.css";
 
 const IMPACT_CONFIG = {
-  critical: { bg: "#dc2626", border: "#991b1b", label: "Critical Outage" },
-  major: { bg: "#d97706", border: "#b45309", label: "Major Outage" },
-  minor: { bg: "#ca8a04", border: "#a16207", label: "Minor Outage" },
-  maintenance: { bg: "#2563eb", border: "#1d4ed8", label: "Maintenance" },
-  none: { bg: "#10b981", border: "#059669", label: "Operational" },
+  critical: { bg: "#dc2626", border: "#991b1b", labelKey: "status.impact.critical" },
+  major: { bg: "#d97706", border: "#b45309", labelKey: "status.impact.major" },
+  minor: { bg: "#ca8a04", border: "#a16207", labelKey: "status.impact.minor" },
+  maintenance: {
+    bg: "#2563eb",
+    border: "#1d4ed8",
+    labelKey: "status.impact.maintenance",
+  },
+  none: { bg: "#10b981", border: "#059669", labelKey: "status.impact.none" },
 };
 
 export default function StatusBanner() {
   const [incidents, setIncidents] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const bannerRef = useRef(null);
+  const { t, locale } = useI18n();
 
   useEffect(() => {
     fetch("https://shopsync.statuspage.io/api/v2/summary.json")
@@ -68,15 +74,17 @@ export default function StatusBanner() {
             ⚠️
           </span>
           <span className="status-banner__text">
-            <strong>{cfg.label}:</strong> {primary.name}
+            <strong>{t(cfg.labelKey)}:</strong> {primary.name}
             {" — "}
             <span className="status-banner__status">
-              {formatStatus(primary.status)}
+              {formatStatus(primary.status, t)}
             </span>
             {extraCount > 0 && (
               <span className="status-banner__extra">
                 {" "}
-                +{extraCount} more incident{extraCount > 1 ? "s" : ""}
+                {extraCount > 1
+                  ? t("status.banner.extra.other", { count: extraCount })
+                  : t("status.banner.extra.one", { count: extraCount })}
               </span>
             )}
           </span>
@@ -84,7 +92,7 @@ export default function StatusBanner() {
             className="status-banner__btn"
             onClick={() => setModalOpen(true)}
           >
-            View Details
+            {t("status.banner.viewDetails")}
           </button>
           <a
             href="https://status.shopsync.aadish.dev"
@@ -92,7 +100,7 @@ export default function StatusBanner() {
             rel="noopener noreferrer"
             className="status-banner__btn status-banner__btn--link"
           >
-            Status Page
+            {t("status.banner.statusPage")}
           </a>
         </div>
       </div>
@@ -121,13 +129,13 @@ export default function StatusBanner() {
                   ⚠️
                 </span>
                 <h2 id="status-modal-title" className="status-modal__title">
-                  Service Status Update
+                  {t("status.modal.title")}
                 </h2>
               </div>
               <button
                 className="status-modal__close"
                 onClick={() => setModalOpen(false)}
-                aria-label="Close modal"
+                aria-label={t("status.modal.closeAria")}
               >
                 ✕
               </button>
@@ -148,10 +156,10 @@ export default function StatusBanner() {
                           className="status-modal__badge"
                           style={{ "--badge-bg": icfg.bg }}
                         >
-                          {icfg.label}
+                          {t(icfg.labelKey)}
                         </span>
                         <span className="status-modal__badge status-modal__badge--status">
-                          {formatStatus(incident.status)}
+                          {formatStatus(incident.status, t)}
                         </span>
                       </div>
                     </div>
@@ -167,7 +175,7 @@ export default function StatusBanner() {
                               className="status-modal__update-time"
                               dateTime={update.created_at}
                             >
-                              {formatDate(update.created_at)}
+                              {formatDate(update.created_at, locale)}
                             </time>
                             <p className="status-modal__update-body">
                               {update.body}
@@ -184,7 +192,7 @@ export default function StatusBanner() {
                         rel="noopener noreferrer"
                         className="status-modal__incident-link"
                       >
-                        Full incident details →
+                        {t("status.modal.fullIncidentDetails")}
                       </a>
                     )}
                   </div>
@@ -199,13 +207,13 @@ export default function StatusBanner() {
                 rel="noopener noreferrer"
                 className="status-modal__statuspage-link"
               >
-                View Status Page ↗
+                {t("status.modal.viewStatusPage")}
               </a>
               <button
                 className="status-modal__close-btn"
                 onClick={() => setModalOpen(false)}
               >
-                Close
+                {t("common.close")}
               </button>
             </div>
           </div>
@@ -215,19 +223,19 @@ export default function StatusBanner() {
   );
 }
 
-function formatStatus(status) {
+function formatStatus(status, t) {
   const map = {
-    investigating: "Investigating",
-    identified: "Identified",
-    monitoring: "Monitoring",
-    resolved: "Resolved",
-    postmortem: "Postmortem",
+    investigating: t("status.state.investigating"),
+    identified: t("status.state.identified"),
+    monitoring: t("status.state.monitoring"),
+    resolved: t("status.state.resolved"),
+    postmortem: t("status.state.postmortem"),
   };
   return map[status] || status;
 }
 
-function formatDate(dateStr) {
-  return new Date(dateStr).toLocaleString(undefined, {
+function formatDate(dateStr, locale) {
+  return new Date(dateStr).toLocaleString(locale, {
     month: "short",
     day: "numeric",
     hour: "2-digit",

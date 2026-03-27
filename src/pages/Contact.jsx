@@ -1,31 +1,27 @@
 import { useEffect } from "react";
 import { Globe, Handshake } from "lucide-react";
+import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Contact.css";
 
 function Contact() {
+  const { t } = useI18n();
+
   useEffect(() => {
-    document.title = "Contact - ShopSync";
-  }, []);
+    document.title = t("contact.meta.title");
+  }, [t]);
 
   return (
     <div className="contact-page">
       <div className="contact-hero">
-        <h1>Get in Touch</h1>
-        <p>
-          Have questions, feedback, or want to contribute? We'd love to hear
-          from you!
-        </p>
+        <h1>{t("contact.hero.title")}</h1>
+        <p>{t("contact.hero.subtitle")}</p>
       </div>
 
       <section className="contact-main">
         <div className="contact-grid">
           <div className="contact-info">
-            <h2>Connect With Us</h2>
-            <p>
-              ShopSync is an open-source project built by the community. Whether
-              you're a user with feedback or a developer wanting to contribute,
-              we welcome your involvement!
-            </p>
+            <h2>{t("contact.connect.title")}</h2>
+            <p>{t("contact.connect.desc")}</p>
 
             <div className="contact-methods">
               <div className="contact-method">
@@ -40,15 +36,15 @@ function Contact() {
                   </svg>
                 </div>
                 <div className="method-content">
-                  <h3>GitHub</h3>
-                  <p>Report bugs, request features, or contribute code</p>
+                  <h3>{t("contact.github.title")}</h3>
+                  <p>{t("contact.github.desc")}</p>
                   <a
                     href="https://github.com/ASDev-Official/shopsync"
                     className="method-link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Visit Repository →
+                    {t("contact.github.cta")}
                   </a>
                 </div>
               </div>
@@ -67,15 +63,15 @@ function Contact() {
                   </svg>
                 </div>
                 <div className="method-content">
-                  <h3>GitHub Issues</h3>
-                  <p>The best way to report bugs or request features</p>
+                  <h3>{t("contact.issues.title")}</h3>
+                  <p>{t("contact.issues.desc")}</p>
                   <a
                     href="https://github.com/ASDev-Official/shopsync/issues"
                     className="method-link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Open an Issue →
+                    {t("contact.issues.cta")}
                   </a>
                 </div>
               </div>
@@ -95,8 +91,8 @@ function Contact() {
                   </svg>
                 </div>
                 <div className="method-content">
-                  <h3>Email</h3>
-                  <p>For general inquiries and support</p>
+                  <h3>{t("contact.email.title")}</h3>
+                  <p>{t("contact.email.desc")}</p>
                   <a
                     href="mailto:support@shopsync.aadish.dev"
                     className="method-link"
@@ -111,15 +107,15 @@ function Contact() {
                   <Globe size={24} />
                 </div>
                 <div className="method-content">
-                  <h3>Localization</h3>
-                  <p>Help translate ShopSync into your language</p>
+                  <h3>{t("contact.localization.title")}</h3>
+                  <p>{t("contact.localization.desc")}</p>
                   <a
-                    href="https://crowdin.com/project/as-shopsync"
+                    href="https://hosted.weblate.org/projects/asdev-official/shopsync-web-landing/"
                     className="method-link"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Contribute on Crowdin →
+                    {t("contact.localization.cta")}
                   </a>
                 </div>
               </div>
@@ -133,35 +129,33 @@ function Contact() {
                   size={32}
                   style={{ display: "inline", marginRight: "0.5rem" }}
                 />{" "}
-                Want to Contribute?
+                {t("contact.contribute.title")}
               </h2>
-              <p>
-                ShopSync is open source and we welcome contributions from
-                developers of all skill levels. Here's how you can help:
-              </p>
+              <p>{t("contact.contribute.desc")}</p>
               <ul className="contribute-list">
                 <li>
-                  <strong>Code Contributions:</strong> Fix bugs, add features,
-                  or improve performance
+                  <strong>{t("contact.contribute.code")}</strong>{" "}
+                  {t("contact.contribute.codeDesc")}
                 </li>
                 <li>
-                  <strong>Documentation:</strong> Help improve our docs and
-                  tutorials
+                  <strong>{t("contact.contribute.docs")}</strong>{" "}
+                  {t("contact.contribute.docsDesc")}
                 </li>
                 <li>
-                  <strong>Translations:</strong> Translate the app into your
-                  language
+                  <strong>{t("contact.contribute.translations")}</strong>{" "}
+                  {t("contact.contribute.translationsDesc")}
                 </li>
                 <li>
-                  <strong>Design:</strong> Create icons, graphics, or improve
-                  the UI/UX
+                  <strong>{t("contact.contribute.design")}</strong>{" "}
+                  {t("contact.contribute.designDesc")}
                 </li>
                 <li>
-                  <strong>Testing:</strong> Report bugs and test new features
+                  <strong>{t("contact.contribute.testing")}</strong>{" "}
+                  {t("contact.contribute.testingDesc")}
                 </li>
                 <li>
-                  <strong>Spread the Word:</strong> Share ShopSync with friends
-                  and family
+                  <strong>{t("contact.contribute.spread")}</strong>{" "}
+                  {t("contact.contribute.spreadDesc")}
                 </li>
               </ul>
               <div className="contribute-buttons">
@@ -171,7 +165,7 @@ function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Contributing Guide
+                  {t("contact.contribute.guide")}
                 </a>
                 <a
                   href="https://github.com/ASDev-Official/shopsync/blob/main/CODE-OF-CONDUCT.md"
@@ -179,17 +173,14 @@ function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Code of Conduct
+                  {t("contact.contribute.coc")}
                 </a>
               </div>
             </div>
 
             <div className="community-card">
-              <h3>Join Our Community</h3>
-              <p>
-                Stay updated with the latest news, updates, and discussions
-                about ShopSync.
-              </p>
+              <h3>{t("contact.community.title")}</h3>
+              <p>{t("contact.community.desc")}</p>
               <div className="community-badges">
                 <a
                   href="https://github.com/ASDev-Official/shopsync/stargazers"
@@ -199,7 +190,7 @@ function Contact() {
                 >
                   <img
                     src="https://img.shields.io/github/stars/ASDev-Official/shopsync?style=social"
-                    alt="GitHub stars"
+                    alt={t("contact.community.stars")}
                   />
                 </a>
                 <a
@@ -210,7 +201,7 @@ function Contact() {
                 >
                   <img
                     src="https://img.shields.io/github/watchers/ASDev-Official/shopsync?style=social"
-                    alt="GitHub watchers"
+                    alt={t("contact.community.watchers")}
                   />
                 </a>
                 <a
@@ -221,7 +212,7 @@ function Contact() {
                 >
                   <img
                     src="https://img.shields.io/github/forks/ASDev-Official/shopsync?style=social"
-                    alt="GitHub forks"
+                    alt={t("contact.community.forks")}
                   />
                 </a>
               </div>
@@ -232,49 +223,37 @@ function Contact() {
 
       <section className="security-section">
         <div className="security-content">
-          <h2>🔒 Security</h2>
-          <p>
-            Found a security vulnerability? Please don't open a public issue.
-            Instead, refer to our security policy for responsible disclosure.
-          </p>
+          <h2>🔒 {t("contact.security.title")}</h2>
+          <p>{t("contact.security.desc")}</p>
           <a
             href="https://github.com/ASDev-Official/shopsync/blob/main/SECURITY.md"
             className="btn btn-outline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View Security Policy
+            {t("contact.security.cta")}
           </a>
         </div>
       </section>
 
       <section className="faq-preview">
-        <h2>Quick Answers</h2>
+        <h2>{t("contact.faq.title")}</h2>
         <div className="faq-grid">
           <div className="faq-item">
-            <h3>Is ShopSync really free?</h3>
-            <p>
-              Yes! ShopSync is completely free and open source under the GNU GPL v3.0
-              License.
-            </p>
+            <h3>{t("contact.faq.free.title")}</h3>
+            <p>{t("contact.faq.free.desc")}</p>
           </div>
           <div className="faq-item">
-            <h3>Which platforms are supported?</h3>
-            <p>
-              Android phones, WearOS watches, and web browsers. iOS support
-              coming soon!
-            </p>
+            <h3>{t("contact.faq.platforms.title")}</h3>
+            <p>{t("contact.faq.platforms.desc")}</p>
           </div>
           <div className="faq-item">
-            <h3>How do I report a bug?</h3>
-            <p>
-              Open an issue on our GitHub repository with details about the
-              problem.
-            </p>
+            <h3>{t("contact.faq.bug.title")}</h3>
+            <p>{t("contact.faq.bug.desc")}</p>
           </div>
           <div className="faq-item">
-            <h3>Can I contribute code?</h3>
-            <p>Absolutely! Check our Contributing Guide to get started.</p>
+            <h3>{t("contact.faq.code.title")}</h3>
+            <p>{t("contact.faq.code.desc")}</p>
           </div>
         </div>
       </section>

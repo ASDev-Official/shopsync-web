@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Footer.css";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useI18n();
 
   return (
     <footer className="footer">
@@ -14,40 +16,39 @@ function Footer() {
               <span className="logo-text">ShopSync</span>
             </div>
             <p className="footer-description">
-              Share shopping lists with family and friends. Free, open-source,
-              and built with ❤️.
+              {t("footer.description")}
             </p>
             <div className="footer-badges">
               <a
                 href="https://github.com/ASDev-Official/shopsync/stargazers"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub Repository"
+                aria-label={t("footer.githubRepository")}
               >
                 <img
                   src="https://img.shields.io/github/stars/ASDev-Official/shopsync?style=social"
-                  alt="GitHub stars"
+                  alt={t("footer.githubStars")}
                 />
               </a>
               <a
                 href="https://github.com/ASDev-Official/shopsync/blob/main/LICENSE"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GNU GPL v3.0 License"
+                aria-label={t("footer.licenseBadge")}
               >
                 <img
                   src="https://img.shields.io/badge/license-GNU GPL v3.0-blue"
-                  alt="GNU GPL v3.0 License"
+                  alt={t("footer.licenseBadge")}
                 />
               </a>
             </div>
           </div>
 
           <div className="footer-section">
-            <h3 className="footer-title">Product</h3>
+            <h3 className="footer-title">{t("footer.section.product")}</h3>
             <ul className="footer-links">
               <li>
-                <Link to="/features">Features</Link>
+                <Link to="/features">{t("nav.features")}</Link>
               </li>
               <li>
                 <a
@@ -55,7 +56,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Download
+                  {t("footer.link.download")}
                 </a>
               </li>
               <li>
@@ -64,7 +65,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Web App
+                  {t("footer.link.webApp")}
                 </a>
               </li>
               <li>
@@ -73,17 +74,17 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Releases
+                  {t("footer.link.releases")}
                 </a>
               </li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h3 className="footer-title">Resources</h3>
+            <h3 className="footer-title">{t("footer.section.resources")}</h3>
             <ul className="footer-links">
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about">{t("nav.about")}</Link>
               </li>
               <li>
                 <a
@@ -91,7 +92,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  GitHub
+                  {t("footer.link.github")}
                 </a>
               </li>
               <li>
@@ -100,26 +101,28 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Contributing
+                  {t("footer.link.contributing")}
                 </a>
               </li>
               <li>
                 <a
-                  href="https://crowdin.com/project/as-shopsync"
+                  href="https://hosted.weblate.org/projects/asdev-official/shopsync-web-landing/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Translations
+                  {t("footer.link.translations")}
                 </a>
               </li>
               <li>
-                <a href="https://shopsync.aadish.dev/docs/">Documentation</a>
+                <a href="https://shopsync.aadish.dev/docs/">
+                  {t("footer.link.documentation")}
+                </a>
               </li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h3 className="footer-title">Legal</h3>
+            <h3 className="footer-title">{t("footer.section.legal")}</h3>
             <ul className="footer-links">
               <li>
                 <a
@@ -127,7 +130,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  License (GNU GPL v3.0)
+                  {t("footer.link.license")}
                 </a>
               </li>
               <li>
@@ -136,7 +139,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Privacy Policy
+                  {t("footer.link.privacy")}
                 </a>
               </li>
               <li>
@@ -145,7 +148,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Code of Conduct
+                  {t("footer.link.codeOfConduct")}
                 </a>
               </li>
               <li>
@@ -154,11 +157,11 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Security
+                  {t("footer.link.security")}
                 </a>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">{t("nav.contact")}</Link>
               </li>
             </ul>
           </div>
@@ -166,7 +169,7 @@ function Footer() {
 
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <p>© {currentYear} ShopSync. Open source under GNU GPL v3.0 License.</p>
+            <p>{t("footer.bottom.copyright", { year: currentYear })}</p>
           </div>
           <div className="footer-social">
             <a
@@ -174,7 +177,7 @@ function Footer() {
               className="social-link"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
+              aria-label={t("footer.social.github")}
             >
               <svg
                 width="24"
@@ -190,7 +193,7 @@ function Footer() {
               className="social-link"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Google Play"
+              aria-label={t("footer.social.googlePlay")}
             >
               <svg
                 width="24"

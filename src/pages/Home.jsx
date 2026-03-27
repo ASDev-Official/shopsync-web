@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { RefreshCw, WifiOff, Users, Trash2, Moon, Watch } from "lucide-react";
+import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Home.css";
 
 function Home() {
+  const { t } = useI18n();
+
   useEffect(() => {
-    document.title = "ShopSync - Shared Shopping Lists";
-  }, []);
+    document.title = t("home.meta.title");
+  }, [t]);
 
   return (
     <div className="home">
@@ -18,12 +21,10 @@ function Home() {
             <span className="hero-title-text">ShopSync</span>
           </h1>
           <p className="hero-subtitle">
-            Share shopping lists with family and friends in real-time
+            {t("home.hero.subtitle")}
           </p>
           <p className="hero-description">
-            The intuitive Flutter app that simplifies shared shopping
-            experiences. Create, manage, and sync shopping lists effortlessly
-            across all your devices.
+            {t("home.hero.description")}
           </p>
           <div className="hero-buttons">
             <a
@@ -33,7 +34,7 @@ function Home() {
             >
               <img
                 src="/google-play-badge.png"
-                alt="Get it on Google Play"
+                alt={t("common.googlePlayAlt")}
                 style={{ height: "60px" }}
               />
             </a>
@@ -55,17 +56,17 @@ function Home() {
                 <line x1="2" y1="12" x2="22" y2="12" />
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
-              Launch Web App
+              {t("home.hero.launchWeb")}
             </a>
           </div>
         </div>
         <div className="hero-image">
           <div className="devices-showcase">
             <div className="device-image">
-              <img src="/phone.png" alt="ShopSync Mobile App" />
+              <img src="/phone.png" alt={t("home.hero.mobileAlt")} />
             </div>
             <div className="device-image">
-              <img src="/watch.png" alt="ShopSync WearOS" />
+              <img src="/watch.png" alt={t("home.hero.wearAlt")} />
             </div>
           </div>
         </div>
@@ -73,101 +74,81 @@ function Home() {
 
       {/* Features Preview */}
       <section className="features-preview">
-        <h2 className="section-title">Why Choose ShopSync?</h2>
+        <h2 className="section-title">{t("home.features.title")}</h2>
         <div className="features-grid">
           <div className="feature-card">
             <div className="feature-icon">
               <RefreshCw size={48} />
             </div>
-            <h3>Real-time Sync</h3>
-            <p>
-              Changes appear instantly across all devices. Never miss an update
-              from your family.
-            </p>
+            <h3>{t("home.features.sync.title")}</h3>
+            <p>{t("home.features.sync.desc")}</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">
               <WifiOff size={48} />
             </div>
-            <h3>Offline Access</h3>
-            <p>
-              Access your lists anytime, anywhere. Changes sync automatically
-              when you're back online.
-            </p>
+            <h3>{t("home.features.offline.title")}</h3>
+            <p>{t("home.features.offline.desc")}</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">
               <Users size={48} />
             </div>
-            <h3>Multi-user Collaboration</h3>
-            <p>
-              Share lists with family and friends. Everyone stays on the same
-              page.
-            </p>
+            <h3>{t("home.features.collab.title")}</h3>
+            <p>{t("home.features.collab.desc")}</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">
               <Trash2 size={48} />
             </div>
-            <h3>Recycle Bin</h3>
-            <p>
-              Accidentally deleted something? Restore items from the recycle bin
-              easily.
-            </p>
+            <h3>{t("home.features.recycle.title")}</h3>
+            <p>{t("home.features.recycle.desc")}</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">
               <Moon size={48} />
             </div>
-            <h3>Dark Mode</h3>
-            <p>
-              Easy on the eyes with beautiful dark and light themes that suit
-              your preference.
-            </p>
+            <h3>{t("home.features.theme.title")}</h3>
+            <p>{t("home.features.theme.desc")}</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">
               <Watch size={48} />
             </div>
-            <h3>WearOS Integration</h3>
-            <p>
-              Access your shopping lists right from your wrist. Check items off
-              without pulling out your phone.
-            </p>
+            <h3>{t("home.features.wear.title")}</h3>
+            <p>{t("home.features.wear.desc")}</p>
           </div>
         </div>
         <div className="cta-section">
           <Link to="/features" className="btn btn-outline">
-            Explore All Features →
+            {t("home.features.cta")}
           </Link>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="stats-section">
-        <h2 className="section-title">Trusted by Users Worldwide</h2>
+        <h2 className="section-title">{t("home.stats.title")}</h2>
         <div className="stats-grid">
           <div className="stat-card">
             <div className="stat-number">100%</div>
-            <div className="stat-label">Free & Open Source</div>
+            <div className="stat-label">{t("home.stats.free")}</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">24/7</div>
-            <div className="stat-label">Cloud Sync</div>
+            <div className="stat-label">{t("home.stats.cloud")}</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">∞</div>
-            <div className="stat-label">Lists & Items</div>
+            <div className="stat-label">{t("home.stats.lists")}</div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="final-cta">
-        <h2>Ready to Simplify Your Shopping?</h2>
-        <p>
-          Join thousands of users who trust ShopSync for their shopping needs
-        </p>
+        <h2>{t("home.final.title")}</h2>
+        <p>{t("home.final.desc")}</p>
         <div className="cta-buttons">
           <a
             href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync"
@@ -176,12 +157,12 @@ function Home() {
           >
             <img
               src="/google-play-badge.png"
-              alt="Get it on Google Play"
+              alt={t("common.googlePlayAlt")}
               style={{ height: "60px" }}
             />
           </a>
           <Link to="/about" className="btn btn-outline btn-lg">
-            Learn More
+            {t("home.final.learnMore")}
           </Link>
         </div>
       </section>

@@ -12,41 +12,40 @@ import {
   UserPlus,
   RotateCcw,
 } from "lucide-react";
+import { useI18n } from "../i18n/I18nProvider";
 import "../styles/Features.css";
 
 function Features() {
+  const { t } = useI18n();
+
   useEffect(() => {
-    document.title = "Features - ShopSync";
-  }, []);
+    document.title = t("features.meta.title");
+  }, [t]);
 
   return (
     <div className="features-page">
       <div className="features-hero">
-        <h1>Powerful Features for Seamless Shopping</h1>
-        <p>Discover everything ShopSync has to offer</p>
+        <h1>{t("features.hero.title")}</h1>
+        <p>{t("features.hero.subtitle")}</p>
       </div>
 
       <section className="feature-section">
         <div className="feature-detail">
           <div className="feature-content">
-            <div className="feature-badge">Core Features</div>
+            <div className="feature-badge">{t("features.sync.badge")}</div>
             <h2>
               <RefreshCw
                 size={32}
                 style={{ display: "inline", marginRight: "0.5rem" }}
               />{" "}
-              Real-time Cloud Synchronization
+              {t("features.sync.title")}
             </h2>
-            <p>
-              Experience seamless shopping with instant updates across all your
-              devices. When someone in your family adds an item, everyone sees
-              it immediately. No more duplicate purchases or forgotten items.
-            </p>
+            <p>{t("features.sync.desc")}</p>
             <ul className="feature-list">
-              <li>✓ Instant updates across all devices</li>
-              <li>✓ Firebase-powered cloud sync</li>
-              <li>✓ No manual refresh needed</li>
-              <li>✓ See who added what in real-time</li>
+              <li>{t("features.sync.bullet1")}</li>
+              <li>{t("features.sync.bullet2")}</li>
+              <li>{t("features.sync.bullet3")}</li>
+              <li>{t("features.sync.bullet4")}</li>
             </ul>
           </div>
           <div className="feature-visual">
@@ -57,9 +56,9 @@ function Features() {
                     size={20}
                     style={{ display: "inline", marginRight: "0.3rem" }}
                   />{" "}
-                  Phone
+                  {t("features.sync.phone")}
                 </div>
-                <div className="sync-item">Add: Milk</div>
+                <div className="sync-item">{t("features.sync.addMilk")}</div>
               </div>
               <div className="sync-arrow">
                 <Zap size={32} />
@@ -70,9 +69,9 @@ function Features() {
                     size={20}
                     style={{ display: "inline", marginRight: "0.3rem" }}
                   />{" "}
-                  Web
+                  {t("features.sync.web")}
                 </div>
-                <div className="sync-item">Updated!</div>
+                <div className="sync-item">{t("features.sync.updated")}</div>
               </div>
             </div>
           </div>
@@ -87,31 +86,27 @@ function Features() {
                 <div className="offline-icon">
                   <WifiOff size={64} />
                 </div>
-                <h4>No Connection</h4>
-                <p>Keep working normally</p>
-                <div className="offline-badge">Auto-sync when online</div>
+                <h4>{t("features.offline.noConnection")}</h4>
+                <p>{t("features.offline.keepWorking")}</p>
+                <div className="offline-badge">{t("features.offline.autoSync")}</div>
               </div>
             </div>
           </div>
           <div className="feature-content">
-            <div className="feature-badge">Reliability</div>
+            <div className="feature-badge">{t("features.offline.badge")}</div>
             <h2>
               <WifiOff
                 size={32}
                 style={{ display: "inline", marginRight: "0.5rem" }}
               />{" "}
-              Offline Access Capability
+              {t("features.offline.title")}
             </h2>
-            <p>
-              Never let a poor connection stop you from shopping. ShopSync works
-              perfectly offline, storing all your changes locally. When you're
-              back online, everything syncs automatically.
-            </p>
+            <p>{t("features.offline.desc")}</p>
             <ul className="feature-list">
-              <li>✓ Full functionality offline</li>
-              <li>✓ Local data caching</li>
-              <li>✓ Automatic sync when reconnected</li>
-              <li>✓ Conflict resolution built-in</li>
+              <li>{t("features.offline.bullet1")}</li>
+              <li>{t("features.offline.bullet2")}</li>
+              <li>{t("features.offline.bullet3")}</li>
+              <li>{t("features.offline.bullet4")}</li>
             </ul>
           </div>
         </div>
@@ -120,24 +115,20 @@ function Features() {
       <section className="feature-section">
         <div className="feature-detail">
           <div className="feature-content">
-            <div className="feature-badge">Collaboration</div>
+            <div className="feature-badge">{t("features.collab.badge")}</div>
             <h2>
               <Users
                 size={32}
                 style={{ display: "inline", marginRight: "0.5rem" }}
               />{" "}
-              Multi-user Collaboration
+              {t("features.collab.title")}
             </h2>
-            <p>
-              Shopping is better together. Share lists with family members,
-              roommates, or friends. Everyone can add, edit, and check off
-              items. Perfect for households, parties, and group events.
-            </p>
+            <p>{t("features.collab.desc")}</p>
             <ul className="feature-list">
-              <li>✓ Share lists with unlimited users</li>
-              <li>✓ See who's editing in real-time</li>
-              <li>✓ Google Sign-In integration</li>
-              <li>✓ Permission management</li>
+              <li>{t("features.collab.bullet1")}</li>
+              <li>{t("features.collab.bullet2")}</li>
+              <li>{t("features.collab.bullet3")}</li>
+              <li>{t("features.collab.bullet4")}</li>
             </ul>
           </div>
           <div className="feature-visual">
@@ -152,8 +143,8 @@ function Features() {
                 <UserPlus size={32} />
               </div>
               <div className="shared-list">
-                <h4>Grocery List</h4>
-                <p>3 members • 12 items</p>
+                <h4>{t("features.collab.groceryList")}</h4>
+                <p>{t("features.collab.groceryStats")}</p>
               </div>
             </div>
           </div>
@@ -168,7 +159,7 @@ function Features() {
                 <Trash2 size={64} />
               </div>
               <div className="restore-action">
-                <span>Restore Item</span>
+                <span>{t("features.recycle.restore")}</span>
                 <div className="restore-arrow">
                   <RotateCcw size={24} />
                 </div>
@@ -176,24 +167,20 @@ function Features() {
             </div>
           </div>
           <div className="feature-content">
-            <div className="feature-badge">Safety</div>
+            <div className="feature-badge">{t("features.recycle.badge")}</div>
             <h2>
               <Trash2
                 size={32}
                 style={{ display: "inline", marginRight: "0.5rem" }}
               />{" "}
-              Recycle Bin
+              {t("features.recycle.title")}
             </h2>
-            <p>
-              Mistakes happen! Accidentally deleted an important item? No
-              problem. ShopSync keeps deleted items in a recycle bin, giving you
-              the ability to restore them anytime.
-            </p>
+            <p>{t("features.recycle.desc")}</p>
             <ul className="feature-list">
-              <li>✓ Safe deletion with recovery option</li>
-              <li>✓ View deleted items history</li>
-              <li>✓ One-tap restore functionality</li>
-              <li>✓ Permanent deletion when ready</li>
+              <li>{t("features.recycle.bullet1")}</li>
+              <li>{t("features.recycle.bullet2")}</li>
+              <li>{t("features.recycle.bullet3")}</li>
+              <li>{t("features.recycle.bullet4")}</li>
             </ul>
           </div>
         </div>
@@ -202,24 +189,20 @@ function Features() {
       <section className="feature-section">
         <div className="feature-detail">
           <div className="feature-content">
-            <div className="feature-badge">Personalization</div>
+            <div className="feature-badge">{t("features.theme.badge")}</div>
             <h2>
               <Moon
                 size={32}
                 style={{ display: "inline", marginRight: "0.5rem" }}
               />{" "}
-              Dark/Light Theme Support
+              {t("features.theme.title")}
             </h2>
-            <p>
-              Choose the theme that works best for you. ShopSync offers both
-              beautiful dark and light modes, designed with Material Design 3
-              principles for a modern, comfortable experience.
-            </p>
+            <p>{t("features.theme.desc")}</p>
             <ul className="feature-list">
-              <li>✓ Elegant dark mode for low-light</li>
-              <li>✓ Clean light mode for daytime</li>
-              <li>✓ Material Design 3 components</li>
-              <li>✓ Smooth theme transitions</li>
+              <li>{t("features.theme.bullet1")}</li>
+              <li>{t("features.theme.bullet2")}</li>
+              <li>{t("features.theme.bullet3")}</li>
+              <li>{t("features.theme.bullet4")}</li>
             </ul>
           </div>
           <div className="feature-visual">
@@ -230,7 +213,7 @@ function Features() {
                     size={20}
                     style={{ display: "inline", marginRight: "0.3rem" }}
                   />{" "}
-                  Light
+                  {t("features.theme.light")}
                 </div>
                 <div className="theme-preview"></div>
               </div>
@@ -240,7 +223,7 @@ function Features() {
                     size={20}
                     style={{ display: "inline", marginRight: "0.3rem" }}
                   />{" "}
-                  Dark
+                  {t("features.theme.dark")}
                 </div>
                 <div className="theme-preview"></div>
               </div>
@@ -250,24 +233,24 @@ function Features() {
       </section>
 
       <section className="additional-features">
-        <h2>And Many More Features...</h2>
+        <h2>{t("features.more.title")}</h2>
         <div className="feature-tags">
-          <div className="tag">📍 Location Support</div>
-          <div className="tag">🔔 Smart Notifications</div>
-          <div className="tag">📤 Share Lists Easily</div>
-          <div className="tag">🎨 Food Category Icons</div>
-          <div className="tag">🏠 Home Screen Widgets</div>
-          <div className="tag">⌚ WearOS Support</div>
-          <div className="tag">🌍 Multi-language Support</div>
-          <div className="tag">🔒 Firebase Authentication</div>
-          <div className="tag">📊 Usage Analytics</div>
-          <div className="tag">🚀 Regular Updates</div>
+          <div className="tag">{t("features.tag.location")}</div>
+          <div className="tag">{t("features.tag.notifications")}</div>
+          <div className="tag">{t("features.tag.share")}</div>
+          <div className="tag">{t("features.tag.icons")}</div>
+          <div className="tag">{t("features.tag.widgets")}</div>
+          <div className="tag">{t("features.tag.wear")}</div>
+          <div className="tag">{t("features.tag.language")}</div>
+          <div className="tag">{t("features.tag.auth")}</div>
+          <div className="tag">{t("features.tag.analytics")}</div>
+          <div className="tag">{t("features.tag.updates")}</div>
         </div>
       </section>
 
       <section className="features-cta">
-        <h2>Experience All These Features Today</h2>
-        <p>Free, open-source, and ready to use</p>
+        <h2>{t("features.cta.title")}</h2>
+        <p>{t("features.cta.subtitle")}</p>
         <a
           href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync"
           target="_blank"
@@ -275,7 +258,7 @@ function Features() {
         >
           <img
             src="/google-play-badge.png"
-            alt="Get it on Google Play"
+            alt={t("common.googlePlayAlt")}
             style={{ height: "60px", cursor: "pointer" }}
           />
         </a>
