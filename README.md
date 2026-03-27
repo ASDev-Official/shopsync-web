@@ -15,7 +15,7 @@ This repository contains both the comprehensive documentation and the landing pa
 
 ## Documentation
 
-Our documentation is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and includes:
+Our documentation is built with [Zensical](https://zensical.org/) using its MkDocs Material compatibility layer, and includes:
 
 ### Getting Started
 

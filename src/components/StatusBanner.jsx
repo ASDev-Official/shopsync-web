@@ -24,9 +24,7 @@ export default function StatusBanner() {
     fetch("https://shopsync.statuspage.io/api/v2/summary.json")
       .then((res) => res.json())
       .then((data) => {
-        const active = (data.incidents || []).filter(
-          (i) => i.status !== "resolved" && i.status !== "postmortem"
-        );
+        const active = getActiveStatusEvents(data);
         setIncidents(active);
         if (active.length > 0) {
           setModalOpen(true);
@@ -228,10 +226,12 @@ function formatStatus(status, t) {
     investigating: t("status.state.investigating"),
     identified: t("status.state.identified"),
     monitoring: t("status.state.monitoring"),
+    scheduled: "Scheduled",
+    in_progress: "In Progress",
     resolved: t("status.state.resolved"),
     postmortem: t("status.state.postmortem"),
   };
-  return map[status] || status;
+  return map[status] || String(status || "").replace(/_/g, " ");
 }
 
 function formatDate(dateStr, locale) {
@@ -241,4 +241,21 @@ function formatDate(dateStr, locale) {
     hour: "2-digit",
     minute: "2-digit",
   });
+}
+
+function getActiveStatusEvents(data) {
+  const activeIncidents = (data.incidents || []).filter(
+    (incident) => incident.status !== "resolved" && incident.status !== "postmortem"
+  );
+
+  const activeMaintenance = (data.scheduled_maintenances || []).filter(
+    (maintenance) => maintenance.status === "scheduled" || maintenance.status === "in_progress"
+  );
+
+  const normalizedMaintenance = activeMaintenance.map((maintenance) => ({
+    ...maintenance,
+    impact: maintenance.impact || "maintenance",
+  }));
+
+  return [...activeIncidents, ...normalizedMaintenance];
 }
