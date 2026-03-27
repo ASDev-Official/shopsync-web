@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:docs": "python3 -m venv .venv-docs && . .venv-docs/bin/activate && python -m pip install -r requirements.txt && zensical build",
+    "build:site": "npm run build && npm run build:docs && mkdir -p dist/docs && cp -rv site/. dist/docs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
