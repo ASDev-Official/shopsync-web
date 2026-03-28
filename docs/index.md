@@ -2,7 +2,7 @@
 
 <div class="grid cards" markdown>
 
-- :material-cart-outline:{ .lg .middle } **Share Shopping Lists**
+- :lucide-shopping-cart:{ .lg .middle } **Share Shopping Lists**
 
   ***
 
@@ -10,7 +10,7 @@
 
   [:octicons-arrow-right-24: Get Started](getting-started/index.md)
 
-- :material-cloud-sync:{ .lg .middle } **Real-time Sync**
+- :lucide-cloud-sync:{ .lg .middle } **Real-time Sync**
 
   ***
 
@@ -18,7 +18,7 @@
 
   [:octicons-arrow-right-24: Learn More](features/real-time-sync.md)
 
-- :material-wifi-off:{ .lg .middle } **Offline Mode**
+- :lucide-wifi-off:{ .lg .middle } **Offline Mode**
 
   ***
 
@@ -26,7 +26,7 @@
 
   [:octicons-arrow-right-24: Explore Offline Mode](user-guide/offline-mode.md)
 
-- :material-lightbulb-on:{ .lg .middle } **Smart Suggestions**
+- :lucide-lightbulb:{ .lg .middle } **Smart Suggestions**
 
   ***
 
@@ -42,16 +42,16 @@
 
 ### :star: Key Features
 
-- **:material-cloud-sync: Real-time Synchronization** - Changes sync instantly across all devices using Cloud Firestore
-- **:material-wifi-off: Offline-First Architecture** - Full functionality without internet connectivity
-- **:material-account-multiple: Multi-user Collaboration** - Share lists with family, friends, or roommates
-- **:material-delete-restore: Recycle Bin** - Recover accidentally deleted items and lists
-- **:material-theme-light-dark: Dark/Light Themes** - Beautiful UI that adapts to your preferences
-- **:material-translate: Internationalization** - Support for multiple languages via Crowdin
-- **:material-watch: WearOS Support** - View lists and complete items from your smartwatch
-- **:material-robot: Smart Suggestions** - AI-powered item suggestions using TensorFlow Lite
-- **:material-widgets: Home Widgets** - Quick access to your lists from your home screen
-- **:material-share-variant: Export & Share** - Share lists via various platforms
+- **:lucide-cloud-sync: Real-time Synchronization** - Changes sync instantly across all devices using Cloud Firestore
+- **:lucide-wifi-off: Offline-First Architecture** - Full functionality without internet connectivity
+- **:lucide-users: Multi-user Collaboration** - Share lists with family, friends, or roommates
+- **:lucide-trash-2: Recycle Bin** - Recover accidentally deleted items and lists
+- **:lucide-sun-moon: Dark/Light Themes** - Beautiful UI that adapts to your preferences
+- **:lucide-languages: Internationalization** - Support for multiple languages via Crowdin
+- **:lucide-watch: WearOS Support** - View lists and complete items from your smartwatch
+- **:lucide-bot: Smart Suggestions** - AI-powered item suggestions using TensorFlow Lite
+- **:lucide-layout-grid: Home Widgets** - Quick access to your lists from your home screen
+- **:lucide-share-2: Export & Share** - Share lists via various platforms
 
 ## Quick Start
 
@@ -76,14 +76,14 @@
 
 ## Why ShopSync?
 
-### :material-check-circle: For Users
+### :lucide-circle-check: For Users
 
 - **Simple & Intuitive** - Clean interface that anyone can use
 - **Always Available** - Works offline and syncs when online
 - **Free & Open Source** - No hidden costs or vendor lock-in
 - **Privacy Focused** - Your data is yours, secured with Firebase
 
-### :material-code-braces: For Developers
+### :lucide-braces: For Developers
 
 - **Modern Flutter** - Built with Flutter 3.6+ and Dart 3.0+
 - **Clean Architecture** - Well-organized codebase following best practices
@@ -107,7 +107,7 @@
 
   Modern programming language
 
-- :material-material-design: **Material Design 3**
+- :simple-materialdesign: **Material Design 3**
 
   Beautiful, adaptive UI
 
@@ -117,31 +117,31 @@
 
 | Platform                                 | Status     | Download                                                                              |
 | ---------------------------------------- | ---------- | ------------------------------------------------------------------------------------- |
-| :material-android: **Android**           | ✅ Stable  | [Google Play](https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync) |
-| :material-web: **Web**                   | ✅ Stable  | [Web App](https://app.shopsync.aadish.dev)                                            |
-| :material-watch: **WearOS**              | ✅ Stable  | Included with Android                                                                 |
-| :material-apple: **iOS**                 | 🚧 Planned | Coming Soon                                                                           |
-| :material-apple: **macOS**               | 🚧 Planned | Coming Soon                                                                           |
-| :material-linux: **Linux**               | 🚧 Planned | Coming Soon                                                                           |
-| :material-microsoft-windows: **Windows** | 🚧 Planned | Coming Soon                                                                           |
+| :simple-android: **Android**           | ✅ Stable  | [Google Play](https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync) |
+| :lucide-globe: **Web**                   | ✅ Stable  | [Web App](https://app.shopsync.aadish.dev)                                            |
+| :lucide-watch: **WearOS**              | ✅ Stable  | Included with Android                                                                 |
+| :simple-apple: **iOS**                 | 🚧 Planned | Coming Soon                                                                           |
+| :simple-apple: **macOS**               | 🚧 Planned | Coming Soon                                                                           |
+| :simple-linux: **Linux**               | 🚧 Planned | Coming Soon                                                                           |
+| :simple-windows: **Windows** | 🚧 Planned | Coming Soon                                                                           |
 
 ## What's Next?
 
 <div class="grid cards" markdown>
 
-- [:material-rocket-launch: **Getting Started**](getting-started/index.md)
+- [:lucide-rocket: **Getting Started**](getting-started/index.md)
 
   Learn how to install and set up ShopSync for development
 
-- [:material-book-open-page-variant: **User Guide**](user-guide/index.md)
+- [:lucide-book-open: **User Guide**](user-guide/index.md)
 
   Discover all features and how to use them effectively
 
-- [:material-code-tags: **Developer Guide**](developer-guide/index.md)
+- [:lucide-code: **Developer Guide**](developer-guide/index.md)
 
   Dive into the architecture and contribute to ShopSync
 
-- [:material-frequently-asked-questions: **FAQ**](faq/index.md)
+- [:lucide-circle-help: **FAQ**](faq/index.md)
 
   Find answers to common questions and issues
 

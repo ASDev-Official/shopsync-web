@@ -6,7 +6,7 @@ Thank you for your interest in contributing to ShopSync! We welcome contribution
 
 <div class="grid cards" markdown>
 
-- :material-bug:{ .lg .middle } **Report Bugs**
+- :lucide-bug:{ .lg .middle } **Report Bugs**
 
   ***
 
@@ -14,7 +14,7 @@ Thank you for your interest in contributing to ShopSync! We welcome contribution
 
   [:octicons-arrow-right-24: Report Bug](https://github.com/ASDev-Official/ShopSync/issues/new?template=bug_report.md)
 
-- :material-lightbulb:{ .lg .middle } **Suggest Features**
+- :lucide-lightbulb:{ .lg .middle } **Suggest Features**
 
   ***
 
@@ -22,7 +22,7 @@ Thank you for your interest in contributing to ShopSync! We welcome contribution
 
   [:octicons-arrow-right-24: Request Feature](https://github.com/ASDev-Official/ShopSync/issues/new?template=feature_request.md)
 
-- :material-code-braces:{ .lg .middle } **Write Code**
+- :lucide-braces:{ .lg .middle } **Write Code**
 
   ***
 
@@ -30,7 +30,7 @@ Thank you for your interest in contributing to ShopSync! We welcome contribution
 
   [:octicons-arrow-right-24: Development Setup](development-setup.md)
 
-- :material-translate:{ .lg .middle } **Localization**
+- :lucide-languages:{ .lg .middle } **Localization**
 
   ***
 
@@ -38,7 +38,7 @@ Thank you for your interest in contributing to ShopSync! We welcome contribution
 
   [:octicons-arrow-right-24: Crowdin Project](https://crowdin.com/project/as-shopsync)
 
-- :material-book-edit:{ .lg .middle } **Documentation**
+- :lucide-book-pen:{ .lg .middle } **Documentation**
 
   ***
 
@@ -46,7 +46,7 @@ Thank you for your interest in contributing to ShopSync! We welcome contribution
 
   [:octicons-arrow-right-24: Docs Repository](https://github.com/ASDev-Official/shopsync-web)
 
-- :material-test-tube:{ .lg .middle } **Testing**
+- :lucide-test-tube:{ .lg .middle } **Testing**
 
   ***
 

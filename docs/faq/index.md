@@ -244,7 +244,7 @@ Local data is deleted, but cloud data remains. You can sign in again on any devi
 
 <div class="grid cards" markdown>
 
-- :material-github:{ .lg .middle } **GitHub Issues**
+- :simple-github:{ .lg .middle } **GitHub Issues**
 
   ***
 
@@ -252,7 +252,7 @@ Local data is deleted, but cloud data remains. You can sign in again on any devi
 
   [:octicons-arrow-right-24: Open Issue](https://github.com/ASDev-Official/ShopSync/issues)
 
-- :material-forum:{ .lg .middle } **Discussions**
+- :lucide-messages-square:{ .lg .middle } **Discussions**
 
   ***
 
@@ -260,7 +260,7 @@ Local data is deleted, but cloud data remains. You can sign in again on any devi
 
   [:octicons-arrow-right-24: Join Discussion](https://github.com/ASDev-Official/ShopSync/discussions)
 
-- :material-book:{ .lg .middle } **Documentation**
+- :lucide-book:{ .lg .middle } **Documentation**
 
   ***
 
@@ -268,7 +268,7 @@ Local data is deleted, but cloud data remains. You can sign in again on any devi
 
   [:octicons-arrow-right-24: Read Docs](../index.md)
 
-- :material-email:{ .lg .middle } **Contact**
+- :lucide-mail:{ .lg .middle } **Contact**
 
   ***
 

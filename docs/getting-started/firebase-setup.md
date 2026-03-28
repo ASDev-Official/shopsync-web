@@ -424,10 +424,10 @@ Regularly export Firestore data for backups:
 
 ## Next Steps
 
-- :material-code-braces: [Explore Firebase Integration](../developer-guide/firebase.md)
-- :material-security: [Learn About Security Rules](../reference/configuration.md)
-- :material-cloud-upload: [Deploy to Firebase Hosting](../deployment/web.md)
-- :material-chart-line: [Monitor with Firebase Analytics](../developer-guide/services.md)
+- :lucide-braces: [Explore Firebase Integration](../developer-guide/firebase.md)
+- :lucide-shield-check: [Learn About Security Rules](../reference/configuration.md)
+- :lucide-cloud-upload: [Deploy to Firebase Hosting](../deployment/web.md)
+- :lucide-chart-line: [Monitor with Firebase Analytics](../developer-guide/services.md)
 
 ---
 

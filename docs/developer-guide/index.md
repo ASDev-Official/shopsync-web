@@ -15,7 +15,7 @@ ShopSync is built with:
 
 <div class="grid cards" markdown>
 
-- :material-floor-plan:{ .lg .middle } **Architecture**
+- :lucide-layout-template:{ .lg .middle } **Architecture**
 
   ***
 
@@ -23,7 +23,7 @@ ShopSync is built with:
 
   [:octicons-arrow-right-24: Architecture Guide](architecture.md)
 
-- :material-file-tree:{ .lg .middle } **Project Structure**
+- :lucide-folder-tree:{ .lg .middle } **Project Structure**
 
   ***
 
@@ -31,7 +31,7 @@ ShopSync is built with:
 
   [:octicons-arrow-right-24: Project Structure](project-structure.md)
 
-- :material-state-machine:{ .lg .middle } **State Management**
+- :lucide-workflow:{ .lg .middle } **State Management**
 
   ***
 
@@ -39,7 +39,7 @@ ShopSync is built with:
 
   [:octicons-arrow-right-24: State Management](state-management.md)
 
-- :material-firebase:{ .lg .middle } **Firebase Integration**
+- :simple-firebase:{ .lg .middle } **Firebase Integration**
 
   ***
 
@@ -47,7 +47,7 @@ ShopSync is built with:
 
   [:octicons-arrow-right-24: Firebase Guide](firebase.md)
 
-- :material-cog:{ .lg .middle } **Services**
+- :lucide-settings:{ .lg .middle } **Services**
 
   ***
 
@@ -55,7 +55,7 @@ ShopSync is built with:
 
   [:octicons-arrow-right-24: Services](services.md)
 
-- :material-television:{ .lg .middle } **Screens**
+- :lucide-tv:{ .lg .middle } **Screens**
 
   ***
 
@@ -63,7 +63,7 @@ ShopSync is built with:
 
   [:octicons-arrow-right-24: Screens](screens.md)
 
-- :material-widgets:{ .lg .middle } **Widgets**
+- :lucide-layout-grid:{ .lg .middle } **Widgets**
 
   ***
 
@@ -71,7 +71,7 @@ ShopSync is built with:
 
   [:octicons-arrow-right-24: Widgets](widgets.md)
 
-- :material-test-tube:{ .lg .middle } **Testing**
+- :lucide-test-tube:{ .lg .middle } **Testing**
 
   ***
 

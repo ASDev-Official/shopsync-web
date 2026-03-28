@@ -239,10 +239,10 @@ Icons make items easier to identify at a glance while shopping.
 
 Now that you're up and running:
 
-- :material-book-open: [Explore All Features](../features/index.md)
-- :material-account-multiple: [Learn About Sharing](../user-guide/sharing.md)
-- :material-cog: [Customize Settings](../user-guide/settings.md)
-- :material-frequently-asked-questions: [Check the FAQ](../faq/index.md)
+- :lucide-book-open: [Explore All Features](../features/index.md)
+- :lucide-users: [Learn About Sharing](../user-guide/sharing.md)
+- :lucide-settings: [Customize Settings](../user-guide/settings.md)
+- :lucide-circle-help: [Check the FAQ](../faq/index.md)
 
 ---
 

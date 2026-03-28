@@ -357,10 +357,10 @@ If you encounter issues:
 
 Now that you have ShopSync installed:
 
-- :material-firebase: [Set up Firebase](firebase-setup.md)
-- :material-code-braces: [Explore the Architecture](../developer-guide/architecture.md)
-- :material-file-tree: [Understand Project Structure](../developer-guide/project-structure.md)
-- :material-hand-heart: [Learn How to Contribute](../contributing/index.md)
+- :simple-firebase: [Set up Firebase](firebase-setup.md)
+- :lucide-braces: [Explore the Architecture](../developer-guide/architecture.md)
+- :lucide-folder-tree: [Understand Project Structure](../developer-guide/project-structure.md)
+- :lucide-hand-heart: [Learn How to Contribute](../contributing/index.md)
 
 ---
 

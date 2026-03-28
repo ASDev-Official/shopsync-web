@@ -6,7 +6,7 @@ Welcome to ShopSync! This guide will help you get up and running with ShopSync, 
 
 <div class="grid cards" markdown>
 
-- :material-account:{ .lg .middle } **End User**
+- :lucide-user:{ .lg .middle } **End User**
 
   ***
 
@@ -14,7 +14,7 @@ Welcome to ShopSync! This guide will help you get up and running with ShopSync, 
 
   [:octicons-arrow-right-24: Quick Start Guide](quick-start.md)
 
-- :material-code-braces:{ .lg .middle } **Developer**
+- :lucide-braces:{ .lg .middle } **Developer**
 
   ***
 
@@ -96,10 +96,10 @@ Ready to begin? Choose your next step:
 
 Need assistance? Check out these resources:
 
-- :material-book: [User Guide](../user-guide/index.md) - Learn how to use all features
-- :material-frequently-asked-questions: [FAQ](../faq/index.md) - Common questions and answers
-- :material-bug: [Issue Tracker](https://github.com/ASDev-Official/ShopSync/issues) - Report bugs
-- :material-forum: [Discussions](https://github.com/ASDev-Official/ShopSync/discussions) - Ask questions
+- :lucide-book: [User Guide](../user-guide/index.md) - Learn how to use all features
+- :lucide-circle-help: [FAQ](../faq/index.md) - Common questions and answers
+- :lucide-bug: [Issue Tracker](https://github.com/ASDev-Official/ShopSync/issues) - Report bugs
+- :lucide-messages-square: [Discussions](https://github.com/ASDev-Official/ShopSync/discussions) - Ask questions
 
 ---
 

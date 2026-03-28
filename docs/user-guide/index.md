@@ -18,7 +18,7 @@ This guide will teach you how to:
 
 <div class="grid cards" markdown>
 
-- :material-login:{ .lg .middle } **Authentication**
+- :lucide-log-in:{ .lg .middle } **Authentication**
 
   ***
 
@@ -26,7 +26,7 @@ This guide will teach you how to:
 
   [:octicons-arrow-right-24: Authentication Guide](authentication.md)
 
-- :material-format-list-checks:{ .lg .middle } **Managing Lists**
+- :lucide-list-checks:{ .lg .middle } **Managing Lists**
 
   ***
 
@@ -34,7 +34,7 @@ This guide will teach you how to:
 
   [:octicons-arrow-right-24: List Management](managing-lists.md)
 
-- :material-cart:{ .lg .middle } **Working with Items**
+- :lucide-shopping-cart:{ .lg .middle } **Working with Items**
 
   ***
 
@@ -42,7 +42,7 @@ This guide will teach you how to:
 
   [:octicons-arrow-right-24: Item Management](working-with-items.md)
 
-- :material-shape:{ .lg .middle } **Categories**
+- :lucide-shapes:{ .lg .middle } **Categories**
 
   ***
 
@@ -50,7 +50,7 @@ This guide will teach you how to:
 
   [:octicons-arrow-right-24: Categories Guide](categories.md)
 
-- :material-share-variant:{ .lg .middle } **Sharing**
+- :lucide-share-2:{ .lg .middle } **Sharing**
 
   ***
 
@@ -58,7 +58,7 @@ This guide will teach you how to:
 
   [:octicons-arrow-right-24: Sharing Guide](sharing.md)
 
-- :material-wifi-off:{ .lg .middle } **Offline Mode**
+- :lucide-wifi-off:{ .lg .middle } **Offline Mode**
 
   ***
 
@@ -66,7 +66,7 @@ This guide will teach you how to:
 
   [:octicons-arrow-right-24: Offline Guide](offline-mode.md)
 
-- :material-cog:{ .lg .middle } **Settings**
+- :lucide-settings:{ .lg .middle } **Settings**
 
   ***
 

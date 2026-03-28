@@ -6,7 +6,7 @@ ShopSync is packed with powerful features to make shared shopping effortless. Ex
 
 <div class="grid cards" markdown>
 
-- :material-cloud-sync:{ .lg .middle } **Real-time Sync**
+- :lucide-cloud-sync:{ .lg .middle } **Real-time Sync**
 
   ***
 
@@ -14,7 +14,7 @@ ShopSync is packed with powerful features to make shared shopping effortless. Ex
 
   [:octicons-arrow-right-24: Learn More](real-time-sync.md)
 
-- :material-lightbulb-on:{ .lg .middle } **Smart Suggestions**
+- :lucide-lightbulb:{ .lg .middle } **Smart Suggestions**
 
   ***
 
@@ -22,7 +22,7 @@ ShopSync is packed with powerful features to make shared shopping effortless. Ex
 
   [:octicons-arrow-right-24: Discover AI Features](smart-suggestions.md)
 
-- :material-delete-restore:{ .lg .middle } **Recycle Bin**
+- :lucide-trash-2:{ .lg .middle } **Recycle Bin**
 
   ***
 
@@ -30,7 +30,7 @@ ShopSync is packed with powerful features to make shared shopping effortless. Ex
 
   [:octicons-arrow-right-24: Recovery Options](recycle-bin.md)
 
-- :material-widgets:{ .lg .middle } **Home Widgets**
+- :lucide-layout-grid:{ .lg .middle } **Home Widgets**
 
   ***
 
@@ -38,7 +38,7 @@ ShopSync is packed with powerful features to make shared shopping effortless. Ex
 
   [:octicons-arrow-right-24: Widget Setup](home-widgets.md)
 
-- :material-watch:{ .lg .middle } **WearOS Support**
+- :lucide-watch:{ .lg .middle } **WearOS Support**
 
   ***
 
@@ -46,7 +46,7 @@ ShopSync is packed with powerful features to make shared shopping effortless. Ex
 
   [:octicons-arrow-right-24: Smartwatch Guide](wearos.md)
 
-- :material-share-variant:{ .lg .middle } **Export & Share**
+- :lucide-share-2:{ .lg .middle } **Export & Share**
 
   ***
 
