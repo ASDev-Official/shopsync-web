@@ -1,2473 +1,1531 @@
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="Comprehensive documentation for ShopSync - Share shopping lists with family and friends">
-      
-      
-        <meta name="author" content="Aadish Samir">
-      
-      
-        <link rel="canonical" href="https://shopsync.aadish.dev/docs/developer-guide/">
-      
-      
-        <link rel="prev" href="../features/export/">
-      
-      
-        <link rel="next" href="./architecture/">
-      
-      
-        
-      
-      
-      <link rel="icon" href="../assets/shopsync-logos/shopsync.png">
-      <meta name="generator" content="zensical-0.0.29">
-    
-    
-      
-        <title>Developer Guide - ShopSync Documentation</title>
-      
-    
-    
-      
-        
-      
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.6f2fbb28.min.css">
-      
-        
-          
-        
-        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
-      
-      
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+    <meta
+      name="description"
+      content="Comprehensive documentation for ShopSync - Share shopping lists with family and friends"
+    />
 
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../stylesheets/extra.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
-    
-      
-  
+    <meta name="author" content="Aadish Samir" />
 
+    <link
+      rel="canonical"
+      href="https://shopsync.aadish.dev/docs/developer-guide/"
+    />
 
-    
-    
+    <link rel="prev" href="../features/export/" />
+
+    <link rel="next" href="./architecture/" />
+
+    <link rel="icon" href="../assets/shopsync-logos/shopsync.png" />
+    <meta name="generator" content="zensical-0.0.29" />
+
+    <title>Developer Guide - ShopSync Documentation</title>
+
+    <link
+      rel="stylesheet"
+      href="../assets/stylesheets/modern/main.6f2fbb28.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../assets/stylesheets/modern/palette.dfe2e883.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback"
+    />
+    <style>
+      :root {
+        --md-text-font: "Roboto";
+        --md-code-font: "Fira Code";
+      }
+    </style>
+
+    <link rel="stylesheet" href="../stylesheets/extra.css" />
+
+    <script>
+      ((__md_scope = new URL("..", location)),
+        (__md_hash = (e) =>
+          [...e].reduce((e, t) => (e << 5) - e + t.charCodeAt(0), 0)),
+        (__md_get = (e, t = localStorage, a = __md_scope) =>
+          JSON.parse(t.getItem(a.pathname + "." + e))),
+        (__md_set = (e, t, a = localStorage, _ = __md_scope) => {
+          try {
+            a.setItem(_.pathname + "." + e, JSON.stringify(t));
+          } catch (e) {}
+        }),
+        document.documentElement.setAttribute(
+          "data-platform",
+          navigator.platform,
+        ));
+    </script>
   </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+
+  <body
+    dir="ltr"
+    data-md-color-scheme="default"
+    data-md-color-primary="green"
+    data-md-color-accent="light-green"
+  >
+    <input
+      class="md-toggle"
+      data-md-toggle="drawer"
+      type="checkbox"
+      id="__drawer"
+      autocomplete="off"
+    />
+    <input
+      class="md-toggle"
+      data-md-toggle="search"
+      type="checkbox"
+      id="__search"
+      autocomplete="off"
+    />
     <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#developer-guide" class="md-skip">
-          Skip to content
+      <a href="#developer-guide" class="md-skip"> Skip to content </a>
+    </div>
+    <div data-md-component="announce"></div>
+
+    <div
+      data-md-color-scheme="default"
+      data-md-component="outdated"
+      hidden
+    ></div>
+
+    <header
+      class="md-header md-header--shadow md-header--lifted"
+      data-md-component="header"
+    >
+      <nav class="md-header__inner md-grid" aria-label="Header">
+        <a
+          href="/"
+          title="ShopSync Documentation"
+          class="md-header__button md-logo"
+          aria-label="ShopSync Documentation"
+          data-md-component="logo"
+        >
+          <img
+            src="../assets/shopsync-logos/shopsync.png"
+            alt="ShopSync Documentation"
+          />
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-      </div>
-    
-    
-      
-
-  
-
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/" title="ShopSync Documentation" class="md-header__button md-logo" aria-label="ShopSync Documentation" data-md-component="logo">
-      
-  <img src="../assets/shopsync-logos/shopsync.png" alt="ShopSync Documentation">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            ShopSync Documentation
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Developer Guide
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon-star" viewBox="0 0 24 24"><path d="M18 5h4M20 3v4M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
-      </label>
-    
-  
-</form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search" aria-label="Search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        <label
+          class="md-header__button md-icon"
+          for="__drawer"
+          aria-label="Navigation"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="lucide lucide-menu"
+            viewBox="0 0 24 24"
+          >
+            <path d="M4 5h16M4 12h16M4 19h16" />
+          </svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
-  <button type="button" class="md-search__button">
-    Search
-  </button>
-</div>
-      
-    
-    <div class="md-header__source">
-      
-        <a href="https://github.com/ASDev-Official/shopsync-web" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-  </div>
-  <div class="md-source__repository">
-    ASDev-Official/shopsync-web
-  </div>
-</a>
-      
-    </div>
-  </nav>
-  
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="./.." class="md-tabs__link">
-        
-  
-  Home
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis"> ShopSync Documentation </span>
+            </div>
+            <div class="md-header__topic" data-md-component="header-topic">
+              <span class="md-ellipsis"> Developer Guide </span>
+            </div>
+          </div>
+        </div>
 
-      </a>
-    </li>
-  
+        <form class="md-header__option" data-md-component="palette">
+          <input
+            class="md-option"
+            data-md-color-media="(prefers-color-scheme)"
+            data-md-color-scheme="default"
+            data-md-color-primary="green"
+            data-md-color-accent="light-green"
+            aria-label="Switch to light mode"
+            type="radio"
+            name="__palette"
+            id="__palette_0"
+          />
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../getting-started/" class="md-tabs__link">
-          
-  
-  Getting Started
+          <label
+            class="md-header__button md-icon"
+            title="Switch to light mode"
+            for="__palette_1"
+            hidden
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="lucide lucide-sun-moon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"
+              />
+            </svg>
+          </label>
 
-        </a>
-      </li>
-    
-  
+          <input
+            class="md-option"
+            data-md-color-media="(prefers-color-scheme: light)"
+            data-md-color-scheme="default"
+            data-md-color-primary="green"
+            data-md-color-accent="light-green"
+            aria-label="Switch to dark mode"
+            type="radio"
+            name="__palette"
+            id="__palette_1"
+          />
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../user-guide/" class="md-tabs__link">
-          
-  
-  User Guide
+          <label
+            class="md-header__button md-icon"
+            title="Switch to dark mode"
+            for="__palette_2"
+            hidden
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="lucide lucide-sun"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              />
+            </svg>
+          </label>
 
-        </a>
-      </li>
-    
-  
+          <input
+            class="md-option"
+            data-md-color-media="(prefers-color-scheme: dark)"
+            data-md-color-scheme="slate"
+            data-md-color-primary="green"
+            data-md-color-accent="light-green"
+            aria-label="Switch to light mode"
+            type="radio"
+            name="__palette"
+            id="__palette_2"
+          />
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../features/" class="md-tabs__link">
-          
-  
-  Features
+          <label
+            class="md-header__button md-icon"
+            title="Switch to light mode"
+            for="__palette_0"
+            hidden
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="lucide lucide-moon-star"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M18 5h4M20 3v4M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+              />
+            </svg>
+          </label>
+        </form>
 
-        </a>
-      </li>
-    
-  
+        <script>
+          var palette = __md_get("__palette");
+          if (palette && palette.color) {
+            if ("(prefers-color-scheme)" === palette.color.media) {
+              var media = matchMedia("(prefers-color-scheme: light)"),
+                input = document.querySelector(
+                  media.matches
+                    ? "[data-md-color-media='(prefers-color-scheme: light)']"
+                    : "[data-md-color-media='(prefers-color-scheme: dark)']",
+                );
+              ((palette.color.media = input.getAttribute(
+                "data-md-color-media",
+              )),
+                (palette.color.scheme = input.getAttribute(
+                  "data-md-color-scheme",
+                )),
+                (palette.color.primary = input.getAttribute(
+                  "data-md-color-primary",
+                )),
+                (palette.color.accent = input.getAttribute(
+                  "data-md-color-accent",
+                )));
+            }
+            for (var [key, value] of Object.entries(palette.color))
+              document.body.setAttribute("data-md-color-" + key, value);
+          }
+        </script>
 
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="././" class="md-tabs__link">
-          
-  
-  Developer Guide
+        <label
+          class="md-header__button md-icon"
+          for="__search"
+          aria-label="Search"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="lucide lucide-search"
+            viewBox="0 0 24 24"
+          >
+            <path d="m21 21-4.34-4.34" />
+            <circle cx="11" cy="11" r="8" />
+          </svg>
+        </label>
+        <div
+          class="md-search"
+          data-md-component="search"
+          role="dialog"
+          aria-label="Search"
+        >
+          <button type="button" class="md-search__button">Search</button>
+        </div>
 
-        </a>
-      </li>
-    
-  
+        <div class="md-header__source">
+          <a
+            href="https://github.com/ASDev-Official/shopsync-web"
+            title="Go to repository"
+            class="md-source"
+            data-md-component="source"
+          >
+            <div class="md-source__icon md-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="lucide lucide-github"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"
+                />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </div>
+            <div class="md-source__repository">ASDev-Official/shopsync-web</div>
+          </a>
+        </div>
+      </nav>
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../deployment/" class="md-tabs__link">
-          
-  
-  Deployment
+      <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+        <div class="md-grid">
+          <ul class="md-tabs__list">
+            <li class="md-tabs__item">
+              <a href="./.." class="md-tabs__link"> Home </a>
+            </li>
 
-        </a>
-      </li>
-    
-  
+            <li class="md-tabs__item">
+              <a href="../getting-started/" class="md-tabs__link">
+                Getting Started
+              </a>
+            </li>
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../contributing/" class="md-tabs__link">
-          
-  
-  Contributing
+            <li class="md-tabs__item">
+              <a href="../user-guide/" class="md-tabs__link"> User Guide </a>
+            </li>
 
-        </a>
-      </li>
-    
-  
+            <li class="md-tabs__item">
+              <a href="../features/" class="md-tabs__link"> Features </a>
+            </li>
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../reference/index.md" class="md-tabs__link">
-          
-  
-  Reference
+            <li class="md-tabs__item md-tabs__item--active">
+              <a href="././" class="md-tabs__link"> Developer Guide </a>
+            </li>
 
-        </a>
-      </li>
-    
-  
+            <li class="md-tabs__item">
+              <a href="../deployment/" class="md-tabs__link"> Deployment </a>
+            </li>
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../faq/" class="md-tabs__link">
-          
-  
-  FAQ & Troubleshooting
+            <li class="md-tabs__item">
+              <a href="../contributing/" class="md-tabs__link">
+                Contributing
+              </a>
+            </li>
 
-        </a>
-      </li>
-    
-  
+            <li class="md-tabs__item">
+              <a href="../reference/index.md" class="md-tabs__link">
+                Reference
+              </a>
+            </li>
 
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../about/license.md" class="md-tabs__link">
-          
-  
-  About
+            <li class="md-tabs__item">
+              <a href="../faq/" class="md-tabs__link">
+                FAQ & Troubleshooting
+              </a>
+            </li>
 
-        </a>
-      </li>
-    
-  
+            <li class="md-tabs__item">
+              <a href="../about/license.md" class="md-tabs__link"> About </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-      
-    </ul>
-  </div>
-</nav>
-    
-  
-</header>
-    
     <div class="md-container" data-md-component="container">
-      
-      
-        
-      
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-  
-
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="/" title="ShopSync Documentation" class="md-nav__button md-logo" aria-label="ShopSync Documentation" data-md-component="logo">
-      
-  <img src="../assets/shopsync-logos/shopsync.png" alt="ShopSync Documentation">
-
-    </a>
-    ShopSync Documentation
-  </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/ASDev-Official/shopsync-web" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-  </div>
-  <div class="md-source__repository">
-    ASDev-Official/shopsync-web
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../getting-started/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Getting Started
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Getting Started
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../getting-started/installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../getting-started/quick-start/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Start
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../getting-started/firebase-setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Firebase Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../user-guide/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    User Guide
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    User Guide
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/authentication/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/managing-lists/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing Lists
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/working-with-items/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Working with Items
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/categories/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Categories & Organization
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/sharing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sharing & Collaboration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/offline-mode/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Offline Mode
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/settings/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Settings & Preferences
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../features/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Features
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Features
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/real-time-sync/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Real-time Sync
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/smart-suggestions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Smart Suggestions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/recycle-bin/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recycle Bin
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/home-widgets/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home Widgets
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/wearos/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    WearOS Support
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/export/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Export & Share
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="././" class="md-nav__link md-nav__link--active">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Developer Guide
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_5" id="__nav_5_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Developer Guide
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./project-structure/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Project Structure
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./state-management.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    State Management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./firebase.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Firebase Integration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./services.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Services
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./screens.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Screens
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./widgets.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Widgets
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="./testing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Testing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../deployment/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Deployment
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deployment/android/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Android
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deployment/web.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Web
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deployment/ci-cd.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CI/CD
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../contributing/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contributing
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Contributing
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contributing/code-of-conduct.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Code of Conduct
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contributing/development-setup.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Development Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contributing/pull-requests.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Pull Requests
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contributing/localization.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Localization
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../reference/index.md" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/api-services.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API Services
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/configuration.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/dependencies.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dependencies
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../faq/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FAQ & Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    FAQ & Troubleshooting
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faq/common-issues.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Common Issues
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faq/performance.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Performance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
-        
-          
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    About
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    About
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about/license.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    License
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about/changelog.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about/security.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Security
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
-</nav>
+          <div
+            class="md-sidebar md-sidebar--primary"
+            data-md-component="sidebar"
+            data-md-type="navigation"
+          >
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav
+                  class="md-nav md-nav--primary md-nav--lifted md-nav--integrated"
+                  aria-label="Navigation"
+                  data-md-level="0"
+                >
+                  <label class="md-nav__title" for="__drawer">
+                    <a
+                      href="/"
+                      title="ShopSync Documentation"
+                      class="md-nav__button md-logo"
+                      aria-label="ShopSync Documentation"
+                      data-md-component="logo"
+                    >
+                      <img
+                        src="../assets/shopsync-logos/shopsync.png"
+                        alt="ShopSync Documentation"
+                      />
+                    </a>
+                    ShopSync Documentation
+                  </label>
+
+                  <div class="md-nav__source">
+                    <a
+                      href="https://github.com/ASDev-Official/shopsync-web"
+                      title="Go to repository"
+                      class="md-source"
+                      data-md-component="source"
+                    >
+                      <div class="md-source__icon md-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          class="lucide lucide-github"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"
+                          />
+                          <path d="M9 18c-4.51 2-5-2-7-2" />
+                        </svg>
+                      </div>
+                      <div class="md-source__repository">
+                        ASDev-Official/shopsync-web
+                      </div>
+                    </a>
                   </div>
-                </div>
+
+                  <ul class="md-nav__list" data-md-scrollfix>
+                    <li class="md-nav__item">
+                      <a href="./.." class="md-nav__link">
+                        <span class="md-ellipsis"> Home </span>
+                      </a>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_2"
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a href="../getting-started/" class="md-nav__link">
+                          <span class="md-ellipsis"> Getting Started </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link"
+                          for="__nav_2"
+                          id="__nav_2_label"
+                          tabindex="0"
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_2_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_2">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          Getting Started
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a
+                              href="../getting-started/installation/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Installation </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../getting-started/quick-start/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Quick Start </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../getting-started/firebase-setup/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Firebase Setup </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_3"
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a href="../user-guide/" class="md-nav__link">
+                          <span class="md-ellipsis"> User Guide </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link"
+                          for="__nav_3"
+                          id="__nav_3_label"
+                          tabindex="0"
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_3_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_3">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          User Guide
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a
+                              href="../user-guide/authentication/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Authentication </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../user-guide/managing-lists/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Managing Lists </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../user-guide/working-with-items/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis">
+                                Working with Items
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../user-guide/categories/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis">
+                                Categories & Organization
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../user-guide/sharing/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis">
+                                Sharing & Collaboration
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../user-guide/offline-mode/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Offline Mode </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../user-guide/settings/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis">
+                                Settings & Preferences
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_4"
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a href="../features/" class="md-nav__link">
+                          <span class="md-ellipsis"> Features </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link"
+                          for="__nav_4"
+                          id="__nav_4_label"
+                          tabindex="0"
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_4_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_4">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          Features
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a
+                              href="../features/real-time-sync/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Real-time Sync </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../features/smart-suggestions/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis">
+                                Smart Suggestions
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../features/recycle-bin/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Recycle Bin </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../features/home-widgets/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Home Widgets </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="../features/wearos/" class="md-nav__link">
+                              <span class="md-ellipsis"> WearOS Support </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="../features/export/" class="md-nav__link">
+                              <span class="md-ellipsis"> Export & Share </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li
+                      class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"
+                    >
+                      <input
+                        class="md-nav__toggle md-toggle"
+                        type="checkbox"
+                        id="__nav_5"
+                        checked
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a
+                          href="././"
+                          class="md-nav__link md-nav__link--active"
+                        >
+                          <span class="md-ellipsis"> Developer Guide </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link md-nav__link--active"
+                          for="__nav_5"
+                          id="__nav_5_label"
+                          tabindex=""
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_5_label"
+                        aria-expanded="true"
+                      >
+                        <label class="md-nav__title" for="__nav_5">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          Developer Guide
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a href="./architecture/" class="md-nav__link">
+                              <span class="md-ellipsis"> Architecture </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="./project-structure/" class="md-nav__link">
+                              <span class="md-ellipsis">
+                                Project Structure
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="./state-management.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis">
+                                State Management
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="./firebase.md" class="md-nav__link">
+                              <span class="md-ellipsis">
+                                Firebase Integration
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="./services.md" class="md-nav__link">
+                              <span class="md-ellipsis"> Services </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="./screens.md" class="md-nav__link">
+                              <span class="md-ellipsis"> Screens </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="./widgets.md" class="md-nav__link">
+                              <span class="md-ellipsis"> Widgets </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="./testing.md" class="md-nav__link">
+                              <span class="md-ellipsis"> Testing </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_6"
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a href="../deployment/" class="md-nav__link">
+                          <span class="md-ellipsis"> Deployment </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link"
+                          for="__nav_6"
+                          id="__nav_6_label"
+                          tabindex="0"
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_6_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_6">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          Deployment
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a
+                              href="../deployment/android/"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Android </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="../deployment/web.md" class="md-nav__link">
+                              <span class="md-ellipsis"> Web </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../deployment/ci-cd.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> CI/CD </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_7"
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a href="../contributing/" class="md-nav__link">
+                          <span class="md-ellipsis"> Contributing </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link"
+                          for="__nav_7"
+                          id="__nav_7_label"
+                          tabindex="0"
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_7_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_7">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          Contributing
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a
+                              href="../contributing/code-of-conduct.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Code of Conduct </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../contributing/development-setup.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis">
+                                Development Setup
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../contributing/pull-requests.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Pull Requests </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../contributing/localization.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Localization </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_8"
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a href="../reference/index.md" class="md-nav__link">
+                          <span class="md-ellipsis"> Reference </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link"
+                          for="__nav_8"
+                          id="__nav_8_label"
+                          tabindex="0"
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_8_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_8">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          Reference
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a
+                              href="../reference/api-services.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> API Services </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../reference/configuration.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Configuration </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../reference/dependencies.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Dependencies </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_9"
+                      />
+
+                      <div class="md-nav__link md-nav__container">
+                        <a href="../faq/" class="md-nav__link">
+                          <span class="md-ellipsis">
+                            FAQ & Troubleshooting
+                          </span>
+                        </a>
+
+                        <label
+                          class="md-nav__link"
+                          for="__nav_9"
+                          id="__nav_9_label"
+                          tabindex="0"
+                        >
+                          <span class="md-nav__icon md-icon"></span>
+                        </label>
+                      </div>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_9_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_9">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          FAQ & Troubleshooting
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a
+                              href="../faq/common-issues.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Common Issues </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../faq/performance.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Performance </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+
+                    <li class="md-nav__item md-nav__item--nested">
+                      <input
+                        class="md-nav__toggle md-toggle md-toggle--indeterminate"
+                        type="checkbox"
+                        id="__nav_10"
+                      />
+
+                      <label
+                        class="md-nav__link"
+                        for="__nav_10"
+                        id="__nav_10_label"
+                        tabindex="0"
+                      >
+                        <span class="md-ellipsis"> About </span>
+
+                        <span class="md-nav__icon md-icon"></span>
+                      </label>
+
+                      <nav
+                        class="md-nav"
+                        data-md-level="1"
+                        aria-labelledby="__nav_10_label"
+                        aria-expanded="false"
+                      >
+                        <label class="md-nav__title" for="__nav_10">
+                          <span class="md-nav__icon md-icon"></span>
+
+                          About
+                        </label>
+                        <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                            <a href="../about/license.md" class="md-nav__link">
+                              <span class="md-ellipsis"> License </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a
+                              href="../about/changelog.md"
+                              class="md-nav__link"
+                            >
+                              <span class="md-ellipsis"> Changelog </span>
+                            </a>
+                          </li>
+
+                          <li class="md-nav__item">
+                            <a href="../about/security.md" class="md-nav__link">
+                              <span class="md-ellipsis"> Security </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+                  </ul>
+                </nav>
               </div>
-            
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              
-                
+            </div>
+          </div>
 
+          <div class="md-content" data-md-component="content">
+            <nav class="md-path" aria-label="Navigation">
+              <ol class="md-path__list">
+                <li class="md-path__item">
+                  <a href="./.." class="md-path__link">
+                    <span class="md-ellipsis"> Home </span>
+                  </a>
+                </li>
 
+                <li class="md-path__item">
+                  <a href="././" class="md-path__link">
+                    <span class="md-ellipsis"> Developer Guide </span>
+                  </a>
+                </li>
+              </ol>
+            </nav>
 
-  
-
-
-  <nav class="md-path" aria-label="Navigation" >
-    <ol class="md-path__list">
-      
-        
-  
-  
-    <li class="md-path__item">
-      <a href="./.." class="md-path__link">
-        
-  <span class="md-ellipsis">
-    Home
-  </span>
-
-      </a>
-    </li>
-  
-
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="././" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Developer Guide
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
-              
-              <article class="md-content__inner md-typeset">
-                
-                  
-  
-  
-
-
-<h1 id="developer-guide">Developer Guide<a class="headerlink" href="#developer-guide" title="Permanent link">&para;</a></h1>
-<p>Welcome to the ShopSync Developer Guide! This section provides comprehensive technical documentation for developers who want to contribute to or understand the ShopSync codebase.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>ShopSync is built with:</p>
-<ul>
-<li><strong>Flutter</strong> - Cross-platform UI framework</li>
-<li><strong>Firebase</strong> - Backend services (Auth, Firestore)</li>
-<li><strong>Provider</strong> - State management</li>
-<li><strong>Material Design 3</strong> - UI components</li>
-</ul>
-<h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permanent link">&para;</a></h2>
-<div class="grid cards">
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-template" viewBox="0 0 24 24"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></svg></span> <strong>Architecture</strong></li>
-</ul>
-<hr />
-<p>Understand the app's structure and design patterns</p>
-<p><a href="architecture/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Architecture Guide</a></p>
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-folder-tree" viewBox="0 0 24 24"><path d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1ZM20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1ZM3 5a2 2 0 0 0 2 2h3"/><path d="M3 3v13a2 2 0 0 0 2 2h3"/></svg></span> <strong>Project Structure</strong></li>
-</ul>
-<hr />
-<p>Navigate the codebase organization</p>
-<p><a href="project-structure/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Project Structure</a></p>
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></span> <strong>State Management</strong></li>
-</ul>
-<hr />
-<p>Learn how ShopSync manages app state</p>
-<p><a href="state-management/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> State Management</a></p>
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.455 8.369c-.538-.748-1.778-2.285-3.681-4.569a447 447 0 0 0-1.884-2.245l-.488-.576-.207-.245-.113-.133-.022-.032-.01-.005L12.57 0l-.609.488a13.34 13.34 0 0 0-3.681 4.64 11.4 11.4 0 0 0-1.043 3.176 12 12 0 0 0-.121.738 11 11 0 0 0-.632-.033l-.059-.003a7.5 7.5 0 0 0-2.28.274l-.317.089-.163.286a9.6 9.6 0 0 0-1.252 4.416 9.53 9.53 0 0 0 1.583 5.625 9.57 9.57 0 0 0 4.42 3.611l.236.095.071.025.003-.001a9.6 9.6 0 0 0 2.941.568q.171.006.342.006a9.5 9.5 0 0 0 3.69-.742l.008.004.313-.145a9.63 9.63 0 0 0 3.927-3.335 9.6 9.6 0 0 0 1.641-5.042c.075-2.161-.643-4.304-2.133-6.371m-7.083 6.695c.328 1.244.264 2.44-.191 3.558-1.135-1.12-1.967-2.352-2.475-3.665-.543-1.404-.87-2.74-.974-3.975.48.157.922.366 1.315.622 1.132.737 1.914 1.902 2.325 3.461zm.207 6.022c.482.368.99.712 1.513 1.028a7.9 7.9 0 0 1-2.369.273 8 8 0 0 1-.373-.022 9 9 0 0 0 1.228-1.279zm1.347-6.431c-.516-1.957-1.527-3.437-3.002-4.398a7.4 7.4 0 0 0-2.194-.95 9 9 0 0 1 .089-.713 11.6 11.6 0 0 1 .91-2.765l.004-.008c.177-.358.376-.719.61-1.105l.092-.152-.003-.001a11.7 11.7 0 0 1 1.942-2.311l.288.341c.672.796 1.304 1.548 1.878 2.237 1.291 1.549 2.966 3.583 3.612 4.48 1.277 1.771 1.893 3.579 1.83 5.375a7.97 7.97 0 0 1-3.995 6.641 15.5 15.5 0 0 1-2.539-1.599c.79-1.575.952-3.28.479-5.072zm-2.575 5.397a7.9 7.9 0 0 1-2.09 1.856 6 6 0 0 1-.243-.093l-.065-.026a7.97 7.97 0 0 1-3.635-3.01 7.94 7.94 0 0 1-1.298-4.653 7.9 7.9 0 0 1 .882-3.379q.476-.105.96-.131l.084-.002q.245-.005.478 0 .341.017.677.07c.073 1.513.445 3.145 1.105 4.852.637 1.644 1.694 3.162 3.144 4.515z"/></svg></span> <strong>Firebase Integration</strong></li>
-</ul>
-<hr />
-<p>Deep dive into Firebase services</p>
-<p><a href="firebase/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Firebase Guide</a></p>
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-settings" viewBox="0 0 24 24"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg></span> <strong>Services</strong></li>
-</ul>
-<hr />
-<p>Core services and utilities</p>
-<p><a href="services/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Services</a></p>
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-tv" viewBox="0 0 24 24"><path d="m17 2-5 5-5-5"/><rect width="20" height="15" x="2" y="7" rx="2"/></svg></span> <strong>Screens</strong></li>
-</ul>
-<hr />
-<p>UI screens and navigation</p>
-<p><a href="screens/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Screens</a></p>
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span> <strong>Widgets</strong></li>
-</ul>
-<hr />
-<p>Reusable UI components</p>
-<p><a href="widgets/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Widgets</a></p>
-<ul>
-<li><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-test-tube" viewBox="0 0 24 24"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5V2M8.5 2h7M14.5 16h-5"/></svg></span> <strong>Testing</strong></li>
-</ul>
-<hr />
-<p>Testing strategies and guidelines</p>
-<p><a href="testing/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Testing</a></p>
-</div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Flutter SDK (^3.6.0)</li>
-<li>Dart SDK (^3.0.0)</li>
-<li>Firebase project configured</li>
-<li>IDE (Android Studio or VS Code)</li>
-</ul>
-<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Clone the repository</li>
-<li>Run <code>flutter pub get</code></li>
-<li>Configure Firebase</li>
-<li>Run <code>flutter run</code></li>
-</ol>
-<p>See <a href="../getting-started/installation/">Installation Guide</a> for detailed steps.</p>
-<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
-<p>ShopSync follows clean architecture principles:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>lib/
+            <article class="md-content__inner md-typeset">
+              <h1 id="developer-guide">
+                Developer Guide<a
+                  class="headerlink"
+                  href="#developer-guide"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h1>
+              <p>
+                Welcome to the ShopSync Developer Guide! This section provides
+                comprehensive technical documentation for developers who want to
+                contribute to or understand the ShopSync codebase.
+              </p>
+              <h2 id="overview">
+                Overview<a
+                  class="headerlink"
+                  href="#overview"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <p>ShopSync is built with:</p>
+              <ul>
+                <li><strong>Flutter</strong> - Cross-platform UI framework</li>
+                <li>
+                  <strong>Firebase</strong> - Backend services (Auth, Firestore)
+                </li>
+                <li><strong>Provider</strong> - State management</li>
+                <li><strong>Material Design 3</strong> - UI components</li>
+              </ul>
+              <h2 id="quick-links">
+                Quick Links<a
+                  class="headerlink"
+                  href="#quick-links"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <div class="grid cards">
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="lucide lucide-layout-template"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect width="18" height="7" x="3" y="3" rx="1" />
+                        <rect width="9" height="7" x="3" y="14" rx="1" />
+                        <rect width="5" height="7" x="16" y="14" rx="1" /></svg
+                    ></span>
+                    <strong>Architecture</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>Understand the app's structure and design patterns</p>
+                <p>
+                  <a href="architecture/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    Architecture Guide</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="lucide lucide-folder-tree"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M20 10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2.5a1 1 0 0 1-.8-.4l-.9-1.2A1 1 0 0 0 15 3h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1ZM20 21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-2.9a1 1 0 0 1-.88-.55l-.42-.85a1 1 0 0 0-.92-.6H13a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1ZM3 5a2 2 0 0 0 2 2h3"
+                        />
+                        <path d="M3 3v13a2 2 0 0 0 2 2h3" /></svg
+                    ></span>
+                    <strong>Project Structure</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>Navigate the codebase organization</p>
+                <p>
+                  <a href="project-structure/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    Project Structure</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="lucide lucide-workflow"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect width="8" height="8" x="3" y="3" rx="2" />
+                        <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+                        <rect width="8" height="8" x="13" y="13" rx="2" /></svg
+                    ></span>
+                    <strong>State Management</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>Learn how ShopSync manages app state</p>
+                <p>
+                  <a href="state-management/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    State Management</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19.455 8.369c-.538-.748-1.778-2.285-3.681-4.569a447 447 0 0 0-1.884-2.245l-.488-.576-.207-.245-.113-.133-.022-.032-.01-.005L12.57 0l-.609.488a13.34 13.34 0 0 0-3.681 4.64 11.4 11.4 0 0 0-1.043 3.176 12 12 0 0 0-.121.738 11 11 0 0 0-.632-.033l-.059-.003a7.5 7.5 0 0 0-2.28.274l-.317.089-.163.286a9.6 9.6 0 0 0-1.252 4.416 9.53 9.53 0 0 0 1.583 5.625 9.57 9.57 0 0 0 4.42 3.611l.236.095.071.025.003-.001a9.6 9.6 0 0 0 2.941.568q.171.006.342.006a9.5 9.5 0 0 0 3.69-.742l.008.004.313-.145a9.63 9.63 0 0 0 3.927-3.335 9.6 9.6 0 0 0 1.641-5.042c.075-2.161-.643-4.304-2.133-6.371m-7.083 6.695c.328 1.244.264 2.44-.191 3.558-1.135-1.12-1.967-2.352-2.475-3.665-.543-1.404-.87-2.74-.974-3.975.48.157.922.366 1.315.622 1.132.737 1.914 1.902 2.325 3.461zm.207 6.022c.482.368.99.712 1.513 1.028a7.9 7.9 0 0 1-2.369.273 8 8 0 0 1-.373-.022 9 9 0 0 0 1.228-1.279zm1.347-6.431c-.516-1.957-1.527-3.437-3.002-4.398a7.4 7.4 0 0 0-2.194-.95 9 9 0 0 1 .089-.713 11.6 11.6 0 0 1 .91-2.765l.004-.008c.177-.358.376-.719.61-1.105l.092-.152-.003-.001a11.7 11.7 0 0 1 1.942-2.311l.288.341c.672.796 1.304 1.548 1.878 2.237 1.291 1.549 2.966 3.583 3.612 4.48 1.277 1.771 1.893 3.579 1.83 5.375a7.97 7.97 0 0 1-3.995 6.641 15.5 15.5 0 0 1-2.539-1.599c.79-1.575.952-3.28.479-5.072zm-2.575 5.397a7.9 7.9 0 0 1-2.09 1.856 6 6 0 0 1-.243-.093l-.065-.026a7.97 7.97 0 0 1-3.635-3.01 7.94 7.94 0 0 1-1.298-4.653 7.9 7.9 0 0 1 .882-3.379q.476-.105.96-.131l.084-.002q.245-.005.478 0 .341.017.677.07c.073 1.513.445 3.145 1.105 4.852.637 1.644 1.694 3.162 3.144 4.515z"
+                        /></svg
+                    ></span>
+                    <strong>Firebase Integration</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>Deep dive into Firebase services</p>
+                <p>
+                  <a href="firebase/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    Firebase Guide</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="lucide lucide-settings"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+                        />
+                        <circle cx="12" cy="12" r="3" /></svg
+                    ></span>
+                    <strong>Services</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>Core services and utilities</p>
+                <p>
+                  <a href="services/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    Services</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="lucide lucide-tv"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="m17 2-5 5-5-5" />
+                        <rect width="20" height="15" x="2" y="7" rx="2" /></svg
+                    ></span>
+                    <strong>Screens</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>UI screens and navigation</p>
+                <p>
+                  <a href="screens/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    Screens</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="lucide lucide-layout-grid"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect width="7" height="7" x="3" y="3" rx="1" />
+                        <rect width="7" height="7" x="14" y="3" rx="1" />
+                        <rect width="7" height="7" x="14" y="14" rx="1" />
+                        <rect width="7" height="7" x="3" y="14" rx="1" /></svg
+                    ></span>
+                    <strong>Widgets</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>Reusable UI components</p>
+                <p>
+                  <a href="widgets/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    Widgets</a
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <span class="twemoji lg middle"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        class="lucide lucide-test-tube"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5V2M8.5 2h7M14.5 16h-5"
+                        /></svg
+                    ></span>
+                    <strong>Testing</strong>
+                  </li>
+                </ul>
+                <hr />
+                <p>Testing strategies and guidelines</p>
+                <p>
+                  <a href="testing/"
+                    ><span class="twemoji"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"
+                        /></svg
+                    ></span>
+                    Testing</a
+                  >
+                </p>
+              </div>
+              <h2 id="getting-started">
+                Getting Started<a
+                  class="headerlink"
+                  href="#getting-started"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <h3 id="prerequisites">
+                Prerequisites<a
+                  class="headerlink"
+                  href="#prerequisites"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ul>
+                <li>Flutter SDK (^3.6.0)</li>
+                <li>Dart SDK (^3.0.0)</li>
+                <li>Firebase project configured</li>
+                <li>IDE (Android Studio or VS Code)</li>
+              </ul>
+              <h3 id="setup">
+                Setup<a class="headerlink" href="#setup" title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ol>
+                <li>Clone the repository</li>
+                <li>Run <code>flutter pub get</code></li>
+                <li>Configure Firebase</li>
+                <li>Run <code>flutter run</code></li>
+              </ol>
+              <p>
+                See
+                <a href="../getting-started/installation/"
+                  >Installation Guide</a
+                >
+                for detailed steps.
+              </p>
+              <h2 id="architecture-overview">
+                Architecture Overview<a
+                  class="headerlink"
+                  href="#architecture-overview"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <p>ShopSync follows clean architecture principles:</p>
+              <div class="language-text highlight">
+                <pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>lib/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── main.dart              # App entry point
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── screens/               # UI screens
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── widgets/              # Reusable widgets
@@ -2475,345 +1533,624 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── models/               # Data models
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── utils/                # Utilities
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── l10n/                 # Localizations
-</span></code></pre></div>
-<h2 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="offline-first">Offline-First<a class="headerlink" href="#offline-first" title="Permanent link">&para;</a></h3>
-<p>ShopSync is designed to work offline:</p>
-<ul>
-<li>Local data persistence</li>
-<li>Sync queue management</li>
-<li>Conflict resolution</li>
-<li>Background synchronization</li>
-</ul>
-<h3 id="real-time-collaboration">Real-time Collaboration<a class="headerlink" href="#real-time-collaboration" title="Permanent link">&para;</a></h3>
-<p>Multiple users can edit simultaneously:</p>
-<ul>
-<li>Firestore real-time listeners</li>
-<li>Optimistic UI updates</li>
-<li>Automatic conflict resolution</li>
-</ul>
-<h3 id="state-management">State Management<a class="headerlink" href="#state-management" title="Permanent link">&para;</a></h3>
-<p>Provider pattern for state:</p>
-<ul>
-<li><code>ChangeNotifier</code> for reactive state</li>
-<li><code>Consumer</code> widgets for UI updates</li>
-<li>Scoped providers for feature isolation</li>
-</ul>
-<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
-<h3 id="branch-strategy">Branch Strategy<a class="headerlink" href="#branch-strategy" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>main</code> - Production-ready code</li>
-<li><code>develop</code> - Integration branch</li>
-<li><code>feature/*</code> - New features</li>
-<li><code>bugfix/*</code> - Bug fixes</li>
-<li><code>release/*</code> - Release preparation</li>
-</ul>
-<h3 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>Follow Dart/Flutter style guidelines:</p>
-<ul>
-<li>Use <code>flutter format</code></li>
-<li>Follow naming conventions</li>
-<li>Document public APIs</li>
-<li>Write meaningful commit messages</li>
-</ul>
-<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
-<p>Write tests for:</p>
-<ul>
-<li>Unit tests for services</li>
-<li>Widget tests for UI components</li>
-<li>Integration tests for user flows</li>
-</ul>
-<h3 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h3>
-<p>Automated pipelines:</p>
-<ul>
-<li>Linting and formatting checks</li>
-<li>Unit and widget tests</li>
-<li>Build verification</li>
-<li>Deployment to stores</li>
-</ul>
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>We welcome contributions! See:</p>
-<ul>
-<li><a href="../contributing/">Contributing Guidelines</a></li>
-<li><a href="../contributing/development-setup/">Development Setup</a></li>
-<li><a href="../contributing/pull-requests/">Pull Request Process</a></li>
-</ul>
-<h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
-<h3 id="core-services">Core Services<a class="headerlink" href="#core-services" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong><code>SharedPrefs</code></strong> - Local storage wrapper</li>
-<li><strong><code>GoogleAuth</code></strong> - Authentication service</li>
-<li><strong><code>ConnectivityService</code></strong> - Network status</li>
-<li><strong><code>MigrationService</code></strong> - Data migration</li>
-<li><strong><code>ThemeNotifier</code></strong> - Theme management</li>
-</ul>
-<p>See <a href="services/">Services Documentation</a> for details.</p>
-<h3 id="firebase-services">Firebase Services<a class="headerlink" href="#firebase-services" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Firebase Auth</strong> - User authentication</li>
-<li><strong>Cloud Firestore</strong> - Real-time database</li>
-<li><strong>Firebase Storage</strong> - File storage (future)</li>
-<li><strong>Cloud Functions</strong> - Server-side logic (future)</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://flutter.dev/docs">Flutter Documentation</a></li>
-<li><a href="https://firebase.google.com/docs">Firebase Documentation</a></li>
-<li><a href="https://m3.material.io">Material Design 3</a></li>
-<li><a href="https://dart.dev/guides/language/language-tour">Dart Language Tour</a></li>
-</ul>
-<h2 id="common-tasks">Common Tasks<a class="headerlink" href="#common-tasks" title="Permanent link">&para;</a></h2>
-<h3 id="adding-a-new-screen">Adding a New Screen<a class="headerlink" href="#adding-a-new-screen" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create file in <code>lib/screens/</code></li>
-<li>Define StatefulWidget</li>
-<li>Add route in <code>main.dart</code></li>
-<li>Implement UI</li>
-<li>Add navigation</li>
-</ol>
-<h3 id="adding-a-new-service">Adding a New Service<a class="headerlink" href="#adding-a-new-service" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create file in <code>lib/services/</code></li>
-<li>Define service class</li>
-<li>Implement methods</li>
-<li>Add to providers (if stateful)</li>
-<li>Document API</li>
-</ol>
-<h3 id="adding-dependencies">Adding Dependencies<a class="headerlink" href="#adding-dependencies" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Add to <code>pubspec.yaml</code></li>
-<li>Run <code>flutter pub get</code></li>
-<li>Import where needed</li>
-<li>Update documentation</li>
-</ol>
-<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
-<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
-<p><strong>Build Failures:</strong></p>
-<ul>
-<li>Run <code>flutter clean</code></li>
-<li>Delete <code>pubspec.lock</code></li>
-<li>Run <code>flutter pub get</code></li>
-</ul>
-<p><strong>Firebase Issues:</strong></p>
-<ul>
-<li>Verify configuration files</li>
-<li>Check security rules</li>
-<li>Review console logs</li>
-</ul>
-<p><strong>State Issues:</strong></p>
-<ul>
-<li>Check provider scope</li>
-<li>Verify notifyListeners() calls</li>
-<li>Use Flutter DevTools</li>
-</ul>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>Ready to dive deeper?</p>
-<ul>
-<li><a href="architecture/">Architecture Details</a></li>
-<li><a href="project-structure/">Project Structure</a></li>
-<li><a href="firebase/">Firebase Integration</a></li>
-<li><a href="../contributing/">Contributing Guide</a></li>
-</ul>
-<hr />
-<p>Questions? Open an issue on <a href="https://github.com/ASDev-Official/ShopSync/issues">GitHub</a>.</p>
+</span></code></pre>
+              </div>
+              <h2 id="key-concepts">
+                Key Concepts<a
+                  class="headerlink"
+                  href="#key-concepts"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <h3 id="offline-first">
+                Offline-First<a
+                  class="headerlink"
+                  href="#offline-first"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <p>ShopSync is designed to work offline:</p>
+              <ul>
+                <li>Local data persistence</li>
+                <li>Sync queue management</li>
+                <li>Conflict resolution</li>
+                <li>Background synchronization</li>
+              </ul>
+              <h3 id="real-time-collaboration">
+                Real-time Collaboration<a
+                  class="headerlink"
+                  href="#real-time-collaboration"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <p>Multiple users can edit simultaneously:</p>
+              <ul>
+                <li>Firestore real-time listeners</li>
+                <li>Optimistic UI updates</li>
+                <li>Automatic conflict resolution</li>
+              </ul>
+              <h3 id="state-management">
+                State Management<a
+                  class="headerlink"
+                  href="#state-management"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <p>Provider pattern for state:</p>
+              <ul>
+                <li><code>ChangeNotifier</code> for reactive state</li>
+                <li><code>Consumer</code> widgets for UI updates</li>
+                <li>Scoped providers for feature isolation</li>
+              </ul>
+              <h2 id="development-workflow">
+                Development Workflow<a
+                  class="headerlink"
+                  href="#development-workflow"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <h3 id="branch-strategy">
+                Branch Strategy<a
+                  class="headerlink"
+                  href="#branch-strategy"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ul>
+                <li><code>main</code> - Production-ready code</li>
+                <li><code>develop</code> - Integration branch</li>
+                <li><code>feature/*</code> - New features</li>
+                <li><code>bugfix/*</code> - Bug fixes</li>
+                <li><code>release/*</code> - Release preparation</li>
+              </ul>
+              <h3 id="code-style">
+                Code Style<a
+                  class="headerlink"
+                  href="#code-style"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <p>Follow Dart/Flutter style guidelines:</p>
+              <ul>
+                <li>Use <code>flutter format</code></li>
+                <li>Follow naming conventions</li>
+                <li>Document public APIs</li>
+                <li>Write meaningful commit messages</li>
+              </ul>
+              <h3 id="testing">
+                Testing<a
+                  class="headerlink"
+                  href="#testing"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <p>Write tests for:</p>
+              <ul>
+                <li>Unit tests for services</li>
+                <li>Widget tests for UI components</li>
+                <li>Integration tests for user flows</li>
+              </ul>
+              <h3 id="cicd">
+                CI/CD<a class="headerlink" href="#cicd" title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <p>Automated pipelines:</p>
+              <ul>
+                <li>Linting and formatting checks</li>
+                <li>Unit and widget tests</li>
+                <li>Build verification</li>
+                <li>Deployment to stores</li>
+              </ul>
+              <h2 id="contributing">
+                Contributing<a
+                  class="headerlink"
+                  href="#contributing"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <p>We welcome contributions! See:</p>
+              <ul>
+                <li><a href="../contributing/">Contributing Guidelines</a></li>
+                <li>
+                  <a href="../contributing/development-setup/"
+                    >Development Setup</a
+                  >
+                </li>
+                <li>
+                  <a href="../contributing/pull-requests/"
+                    >Pull Request Process</a
+                  >
+                </li>
+              </ul>
+              <h2 id="api-reference">
+                API Reference<a
+                  class="headerlink"
+                  href="#api-reference"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <h3 id="core-services">
+                Core Services<a
+                  class="headerlink"
+                  href="#core-services"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ul>
+                <li>
+                  <strong><code>SharedPrefs</code></strong> - Local storage
+                  wrapper
+                </li>
+                <li>
+                  <strong><code>GoogleAuth</code></strong> - Authentication
+                  service
+                </li>
+                <li>
+                  <strong><code>ConnectivityService</code></strong> - Network
+                  status
+                </li>
+                <li>
+                  <strong><code>MigrationService</code></strong> - Data
+                  migration
+                </li>
+                <li>
+                  <strong><code>ThemeNotifier</code></strong> - Theme management
+                </li>
+              </ul>
+              <p>
+                See <a href="services/">Services Documentation</a> for details.
+              </p>
+              <h3 id="firebase-services">
+                Firebase Services<a
+                  class="headerlink"
+                  href="#firebase-services"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ul>
+                <li><strong>Firebase Auth</strong> - User authentication</li>
+                <li><strong>Cloud Firestore</strong> - Real-time database</li>
+                <li>
+                  <strong>Firebase Storage</strong> - File storage (future)
+                </li>
+                <li>
+                  <strong>Cloud Functions</strong> - Server-side logic (future)
+                </li>
+              </ul>
+              <h2 id="resources">
+                Resources<a
+                  class="headerlink"
+                  href="#resources"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <ul>
+                <li>
+                  <a href="https://flutter.dev/docs">Flutter Documentation</a>
+                </li>
+                <li>
+                  <a href="https://firebase.google.com/docs"
+                    >Firebase Documentation</a
+                  >
+                </li>
+                <li><a href="https://m3.material.io">Material Design 3</a></li>
+                <li>
+                  <a href="https://dart.dev/guides/language/language-tour"
+                    >Dart Language Tour</a
+                  >
+                </li>
+              </ul>
+              <h2 id="common-tasks">
+                Common Tasks<a
+                  class="headerlink"
+                  href="#common-tasks"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <h3 id="adding-a-new-screen">
+                Adding a New Screen<a
+                  class="headerlink"
+                  href="#adding-a-new-screen"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ol>
+                <li>Create file in <code>lib/screens/</code></li>
+                <li>Define StatefulWidget</li>
+                <li>Add route in <code>main.dart</code></li>
+                <li>Implement UI</li>
+                <li>Add navigation</li>
+              </ol>
+              <h3 id="adding-a-new-service">
+                Adding a New Service<a
+                  class="headerlink"
+                  href="#adding-a-new-service"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ol>
+                <li>Create file in <code>lib/services/</code></li>
+                <li>Define service class</li>
+                <li>Implement methods</li>
+                <li>Add to providers (if stateful)</li>
+                <li>Document API</li>
+              </ol>
+              <h3 id="adding-dependencies">
+                Adding Dependencies<a
+                  class="headerlink"
+                  href="#adding-dependencies"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <ol>
+                <li>Add to <code>pubspec.yaml</code></li>
+                <li>Run <code>flutter pub get</code></li>
+                <li>Import where needed</li>
+                <li>Update documentation</li>
+              </ol>
+              <h2 id="debugging">
+                Debugging<a
+                  class="headerlink"
+                  href="#debugging"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <h3 id="common-issues">
+                Common Issues<a
+                  class="headerlink"
+                  href="#common-issues"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h3>
+              <p><strong>Build Failures:</strong></p>
+              <ul>
+                <li>Run <code>flutter clean</code></li>
+                <li>Delete <code>pubspec.lock</code></li>
+                <li>Run <code>flutter pub get</code></li>
+              </ul>
+              <p><strong>Firebase Issues:</strong></p>
+              <ul>
+                <li>Verify configuration files</li>
+                <li>Check security rules</li>
+                <li>Review console logs</li>
+              </ul>
+              <p><strong>State Issues:</strong></p>
+              <ul>
+                <li>Check provider scope</li>
+                <li>Verify notifyListeners() calls</li>
+                <li>Use Flutter DevTools</li>
+              </ul>
+              <h2 id="next-steps">
+                Next Steps<a
+                  class="headerlink"
+                  href="#next-steps"
+                  title="Permanent link"
+                  >&para;</a
+                >
+              </h2>
+              <p>Ready to dive deeper?</p>
+              <ul>
+                <li><a href="architecture/">Architecture Details</a></li>
+                <li><a href="project-structure/">Project Structure</a></li>
+                <li><a href="firebase/">Firebase Integration</a></li>
+                <li><a href="../contributing/">Contributing Guide</a></li>
+              </ul>
+              <hr />
+              <p>
+                Questions? Open an issue on
+                <a href="https://github.com/ASDev-Official/ShopSync/issues"
+                  >GitHub</a
+                >.
+              </p>
 
+              <form class="md-feedback" name="feedback" hidden>
+                <fieldset>
+                  <legend class="md-feedback__title">
+                    Was this page helpful?
+                  </legend>
+                  <div class="md-feedback__inner">
+                    <div class="md-feedback__list">
+                      <button
+                        class="md-feedback__icon md-icon"
+                        type="submit"
+                        title="This page was helpful"
+                        data-md-value="1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          class="lucide lucide-thumbs-up"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88M7 10v12"
+                          />
+                        </svg>
+                      </button>
 
+                      <button
+                        class="md-feedback__icon md-icon"
+                        type="submit"
+                        title="This page could be improved"
+                        data-md-value="0"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          class="lucide lucide-thumbs-down"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88M17 14V2"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="md-feedback__note">
+                      <div data-md-value="1" hidden>
+                        Thanks for your feedback!
+                      </div>
 
+                      <div data-md-value="0" hidden>
+                        Thanks for your feedback! Help us improve by using our
+                        <a
+                          href="https://github.com/ASDev-Official/shopsync-web/issues/new"
+                          target="_blank"
+                          >feedback form</a
+                        >.
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </article>
+          </div>
 
+          <script>
+            var tabs = __md_get("__tabs");
+            if (Array.isArray(tabs))
+              e: for (var set of document.querySelectorAll(".tabbed-set")) {
+                var labels = set.querySelector(".tabbed-labels");
+                for (var tab of tabs)
+                  for (var label of labels.getElementsByTagName("label"))
+                    if (label.innerText.trim() === tab) {
+                      var input = document.getElementById(label.htmlFor);
+                      input.checked = !0;
+                      continue e;
+                    }
+              }
+          </script>
 
-
-
-
-
-
-
-  
-
-
-
-  <form class="md-feedback" name="feedback" hidden>
-    <fieldset>
-      <legend class="md-feedback__title">
-        Was this page helpful?
-      </legend>
-      <div class="md-feedback__inner">
-        <div class="md-feedback__list">
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-thumbs-up" viewBox="0 0 24 24"><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88M7 10v12"/></svg>
-            </button>
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-thumbs-down" viewBox="0 0 24 24"><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88M17 14V2"/></svg>
-            </button>
-          
+          <script>
+            var target = document.getElementById(location.hash.slice(1));
+            target &&
+              target.name &&
+              (target.checked = target.name.startsWith("__tabbed_"));
+          </script>
         </div>
-        <div class="md-feedback__note">
-          
-            <div data-md-value="1" hidden>
-              
-              
-                
-              
-              
-              
-                
-                
-              
-              Thanks for your feedback!
-            </div>
-          
-            <div data-md-value="0" hidden>
-              
-              
-                
-              
-              
-              
-                
-                
-              
-              Thanks for your feedback! Help us improve by using our  <a href="https://github.com/ASDev-Official/shopsync-web/issues/new" target="_blank">feedback form</a>.
-            </div>
-          
-        </div>
-      </div>
-    </fieldset>
-  </form>
 
-
-                
-              </article>
-            </div>
-          
-          
-  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
-  Back to top
-</button>
-        
+        <button
+          type="button"
+          class="md-top md-icon"
+          data-md-component="top"
+          hidden
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="lucide lucide-circle-arrow-up"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="m16 12-4-4-4 4M12 16V8" />
+          </svg>
+          Back to top
+        </button>
       </main>
-      
-        <footer class="md-footer">
-  
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../features/export/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Export &amp; Share">
+
+      <footer class="md-footer">
+        <nav class="md-footer__inner md-grid" aria-label="Footer">
+          <a
+            href="../features/export/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="Previous: Export &amp; Share"
+          >
             <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="lucide lucide-arrow-left"
+                viewBox="0 0 24 24"
+              >
+                <path d="m12 19-7-7 7-7M19 12H5" />
+              </svg>
             </div>
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Export & Share
-              </div>
+              <span class="md-footer__direction"> Previous </span>
+              <div class="md-ellipsis">Export & Share</div>
             </div>
           </a>
-        
-        
-          
-          <a href="./architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Architecture">
+
+          <a
+            href="./architecture/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="Next: Architecture"
+          >
             <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Architecture
-              </div>
+              <span class="md-footer__direction"> Next </span>
+              <div class="md-ellipsis">Architecture</div>
             </div>
             <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="lucide lucide-arrow-right"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
-        
-      </nav>
-    
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-    <div class="md-copyright__highlight">
-      Copyright &copy; 2025 Aadish Samir. Licensed under GNU GPL v3.0 License.
-    </div>
-  
-  
-    Made with
-    <a href="https://zensical.org/" target="_blank" rel="noopener">
-      Zensical
-    </a>
-  
-</div>
-      
-        
-<div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/ASDev-Official/ShopSync" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync" target="_blank" rel="noopener" title="play.google.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.018 13.298-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594M1.337.924a1.5 1.5 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087zm12.207 10.065 3.258-3.238L3.45.195a1.47 1.47 0 0 0-.946-.179zm0 2.067-11 10.933c.298.036.612-.016.906-.183l13.324-7.54z"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://app.shopsync.aadish.dev" target="_blank" rel="noopener" title="app.shopsync.aadish.dev" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
-    </a>
-  
-</div>
-      
-    </div>
-  </div>
-</footer>
-      
+        </nav>
+
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              <div class="md-copyright__highlight">
+                Copyright &copy; 2026 Aadish Samir. Licensed under GNU GPL v3.0
+                License.
+              </div>
+
+              Made with
+              <a href="https://zensical.org/" target="_blank" rel="noopener">
+                Zensical
+              </a>
+            </div>
+
+            <div class="md-social">
+              <a
+                href="https://github.com/ASDev-Official/ShopSync"
+                target="_blank"
+                rel="noopener"
+                title="github.com"
+                class="md-social__link"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://play.google.com/store/apps/details?id=com.aadishsamir.shopsync"
+                target="_blank"
+                rel="noopener"
+                title="play.google.com"
+                class="md-social__link"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="m22.018 13.298-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594M1.337.924a1.5 1.5 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087zm12.207 10.065 3.258-3.238L3.45.195a1.47 1.47 0 0 0-.946-.179zm0 2.067-11 10.933c.298.036.612-.016.906-.183l13.324-7.54z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://app.shopsync.aadish.dev"
+                target="_blank"
+                rel="noopener"
+                title="app.shopsync.aadish.dev"
+                class="md-social__link"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="lucide lucide-globe"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    
-    
-    
-      
-      
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.tracking","navigation.tabs","navigation.tabs.sticky","navigation.sections","navigation.expand","navigation.path","navigation.indexes","navigation.top","navigation.footer","toc.follow","toc.integrate","search.suggest","search.highlight","search.share","header.autohide","content.code.copy","content.code.annotate","content.tabs.link","content.tooltips"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"provider":"mike"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.c2b142ea.min.js"></script>
-      
-    
+
+    <script id="__config" type="application/json">
+      {
+        "annotate": null,
+        "base": "..",
+        "features": [
+          "navigation.tracking",
+          "navigation.tabs",
+          "navigation.tabs.sticky",
+          "navigation.sections",
+          "navigation.expand",
+          "navigation.path",
+          "navigation.indexes",
+          "navigation.top",
+          "navigation.footer",
+          "toc.follow",
+          "toc.integrate",
+          "search.suggest",
+          "search.highlight",
+          "search.share",
+          "header.autohide",
+          "content.code.copy",
+          "content.code.annotate",
+          "content.tabs.link",
+          "content.tooltips"
+        ],
+        "search": "../assets/javascripts/workers/search.e2d2d235.min.js",
+        "tags": null,
+        "translations": {
+          "clipboard.copied": "Copied to clipboard",
+          "clipboard.copy": "Copy to clipboard",
+          "search.result.more.one": "1 more on this page",
+          "search.result.more.other": "# more on this page",
+          "search.result.none": "No matching documents",
+          "search.result.one": "1 matching document",
+          "search.result.other": "# matching documents",
+          "search.result.placeholder": "Type to start searching",
+          "search.result.term.missing": "Missing",
+          "select.version": "Select version"
+        },
+        "version": { "provider": "mike" }
+      }
+    </script>
+
+    <script src="../assets/javascripts/bundle.c2b142ea.min.js"></script>
   </body>
 </html>
