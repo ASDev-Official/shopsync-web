@@ -3,20 +3,17 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
-  @@  "routes": [
-  @@    {
-  @@      "src": "/docs(?:/(.*?))?$",
-  @@      "status": 200,
-  @@      "continue": true
-  @@    },
-  @@    {
-  @@      "src": "^/(.*?)(?:\\.html)?/?$",
-  @@      "destination": "/index.html",
-  @@      "status": 200
-  @@    },
-  @@    {
-  @@      "src": "^/.*$",
-  @@      "status": 404
-  @@    }
-  @@  ]
+  "routes": [
+    {
+      "src": "^/docs(?:/.*)?$",
+      "dest": "/docs/index.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/index.html"
+    }
+  ]
 }
