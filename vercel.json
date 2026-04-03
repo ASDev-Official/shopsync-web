@@ -1,15 +1,11 @@
 {
   "buildCommand": "npm run build:site",
   "outputDirectory": "dist",
-  "trailingSlash": true,
-  "cleanUrls": true,
-  "routes": [
+  "cleanUrls": false,
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/:path((?!.*\\.).*)",
+      "destination": "/index.html"
     }
   ]
 }
