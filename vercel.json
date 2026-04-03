@@ -1,15 +1,22 @@
 {
   "buildCommand": "npm run build:site",
   "outputDirectory": "dist",
-  "cleanUrls": false,
-  "rewrites": [
-    {
-      "source": "/docs/:path(.*)",
-      "destination": "/docs/:path(.*)"
-    },
-    {
-      "source": "/:path((?!/docs|.*\\.).*)",
-      "destination": "/index.html"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false,
+  @@  "routes": [
+  @@    {
+  @@      "src": "/docs(?:/(.*?))?$",
+  @@      "status": 200,
+  @@      "continue": true
+  @@    },
+  @@    {
+  @@      "src": "^/(.*?)(?:\\.html)?/?$",
+  @@      "destination": "/index.html",
+  @@      "status": 200
+  @@    },
+  @@    {
+  @@      "src": "^/.*$",
+  @@      "status": 404
+  @@    }
+  @@  ]
 }
